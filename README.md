@@ -68,18 +68,7 @@ A social media app based on your listening habits sourced from Spotify.
    * ...
 
 ## Wireframes
-[Add picture of your hand sketched wireframes in this section]
-<img src="YOUR_WIREFRAME_IMAGE_URL" width=600>
+<img src="https://raw.githubusercontent.com/csumb-team7/Friendify/master/wireframes/wireframe.jpeg" width=600>
 
-### [BONUS] Digital Wireframes & Mockups
-
-### [BONUS] Interactive Prototype
-
-## Schema 
-[This section will be completed in Unit 9]
-### Models
-[Add table of models]
-### Networking
-- [Add list of network requests by screen ]
-- [Create basic snippets for each Parse network request]
-- [OPTIONAL: List endpoints if using existing API such as Yelp]
+### Interactive Prototype
+<img src="https://i.imgur.com/WqXEQJs.gif" width=300>
