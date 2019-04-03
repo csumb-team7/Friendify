@@ -73,3 +73,46 @@ A social media app based on your listening habits sourced from Spotify.
 
 ### Interactive Prototype
 <img src="https://i.imgur.com/WqXEQJs.gif" width=250>
+
+## Schema
+### Models
+#### User
+
+   | Property      | Type     | Description |
+   | ------------- | -------- | ------------|
+   | objectId      | String   | unique id for the user (default field) |
+   | image         | File     | image that user posts |
+   | spotify_account       | String   | Spotify's key |
+   | name       | String   | User's name |
+   | lastname       | String   | User's lastname |
+   | username       | String   | User's username |
+   | createdAt     | DateTime | date when post is created (default field) |
+   | updatedAt     | DateTime | date when post is last updated (default field) |
+   
+#### Post
+
+   | Property      | Type     | Description |
+   | ------------- | -------- | ------------|
+   | objectId      | String   | unique id for the post (default field) |
+   | author        | Pointer to User| Author |
+   | spotify_song_id         | String     | Spotify song id |
+   | createdAt     | DateTime | date when post is created (default field) |
+   | updatedAt     | DateTime | date when post is last updated (default field) |
+   
+### Networking
+#### List of network requests by screen
+   - Login
+      - (POST) User can login.
+   - Logout
+      - (POST) User can logout.
+   - Sign Up
+      - (POST) User can create an account.
+   - Edit Profile
+      - (POST) User can edit his profile.
+   - Find a friend
+      - (GET) User is able to find friends by their username.
+   - Add a friend
+      - (POST) User is able to add friends.
+   - Delete a friend 
+      - (POST) User is able to delete friends.
+   
