@@ -29,46 +29,47 @@ A social media app based on your listening habits sourced from Spotify.
 * User should be able to logout
 * User should be able to sign up
 * User should be able to see the stream screen
-* 
+* User can add 'friends'
+* User should be able to see the profile screen
 
 **Optional Nice-to-have Stories**
 
 * User can play the song
 * User can receive friend/music recommendations
-* 
+* User can message others
 
 ### 2. Screen Archetypes
 
 * Login
-   * [list associated required story here]
-   * ...
+    * User should be able to login
 * Register
-   * [list associated required story here]
-   * ...
+    * User should be able to sign up
 * Profile
-    * 
+    * User should be able to see the profile screen
 * Stream
-    * 
+    * User should be able to see the stream screen
 
 ### 3. Navigation
 
 **Tab Navigation** (Tab to Screen)
 
 * Feed
-* [fill out your second tab]
-* [fill out your third tab]
+* Profile
+* Recommended People
 
 **Flow Navigation** (Screen to Screen)
 
-* [list first screen here]
-   * [list screen navigation here]
-   * ...
-* [list second screen here]
-   * [list screen navigation here]
-   * ...
+* Login
+   * Stream
+* Register
+   * Stream
+* Stream
+   * Profile
+   * Recommended people
 
 ## Wireframes
-<img src="https://raw.githubusercontent.com/csumb-team7/Friendify/master/wireframes/wireframe.jpeg" width=600>
+[Add picture of your hand sketched wireframes in this section]
+<img src="https://github.com/csumb-team7/Friendify/blob/master/wireframes/wireframe.jpeg?raw=true" width=600>
 
-### Interactive Prototype
-<img src="https://i.imgur.com/WqXEQJs.gif" width=300>
+### [BONUS] Interactive Prototype
+<img src="https://i.imgur.com/WqXEQJs.gif" width=250>
