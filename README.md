@@ -71,5 +71,5 @@ A social media app based on your listening habits sourced from Spotify.
 [Add picture of your hand sketched wireframes in this section]
 <img src="https://github.com/csumb-team7/Friendify/blob/master/wireframes/wireframe.jpeg?raw=true" width=600>
 
-### [BONUS] Interactive Prototype
+### Interactive Prototype
 <img src="https://i.imgur.com/WqXEQJs.gif" width=250>
