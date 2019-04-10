@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		12DBB2218DD676F41CC84D83 /* Pods_FriendifyUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 994B3E1E5FF7ED858EE167AD /* Pods_FriendifyUITests.framework */; };
 		9912776FAEECDEBF30B42922 /* Pods_Friendify.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DFFA89AC515B8395FDB95AD /* Pods_Friendify.framework */; };
+		A09B15BC225BF8C0004DFA1F /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A09B15BB225BF8C0004DFA1F /* LoginViewController.swift */; };
 		A0B7B96E2259A1BD008D1435 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0B7B96D2259A1BD008D1435 /* AppDelegate.swift */; };
 		A0B7B9702259A1BD008D1435 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0B7B96F2259A1BD008D1435 /* ViewController.swift */; };
 		A0B7B9732259A1BD008D1435 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A0B7B9712259A1BD008D1435 /* Main.storyboard */; };
@@ -43,6 +44,7 @@
 		773A87D639FECC2821D545E3 /* Pods-Friendify.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Friendify.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Friendify/Pods-Friendify.debug.xcconfig"; sourceTree = "<group>"; };
 		994B3E1E5FF7ED858EE167AD /* Pods_FriendifyUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FriendifyUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9DFFA89AC515B8395FDB95AD /* Pods_Friendify.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Friendify.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A09B15BB225BF8C0004DFA1F /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		A0B7B96A2259A1BD008D1435 /* Friendify.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Friendify.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0B7B96D2259A1BD008D1435 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A0B7B96F2259A1BD008D1435 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -143,6 +145,7 @@
 				A0B7B9742259A1BE008D1435 /* Assets.xcassets */,
 				A0B7B9762259A1BE008D1435 /* LaunchScreen.storyboard */,
 				A0B7B9792259A1BE008D1435 /* Info.plist */,
+				A09B15BB225BF8C0004DFA1F /* LoginViewController.swift */,
 			);
 			path = Friendify;
 			sourceTree = "<group>";
@@ -397,6 +400,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A09B15BC225BF8C0004DFA1F /* LoginViewController.swift in Sources */,
 				A0B7B9702259A1BD008D1435 /* ViewController.swift in Sources */,
 				A0B7B96E2259A1BD008D1435 /* AppDelegate.swift in Sources */,
 			);
