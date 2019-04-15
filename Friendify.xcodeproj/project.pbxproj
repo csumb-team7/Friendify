@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		12DBB2218DD676F41CC84D83 /* Pods_FriendifyUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 994B3E1E5FF7ED858EE167AD /* Pods_FriendifyUITests.framework */; };
+		7E0277F32264FD6900741DAA /* SpotifyiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E0277F22264FD6900741DAA /* SpotifyiOS.framework */; };
+		7EB2DBEE225BF3030068ADDF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7EB2DBED225BF3030068ADDF /* GoogleService-Info.plist */; };
+		7EB2DBF0225BF7EE0068ADDF /* friendifyDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EB2DBEF225BF7EE0068ADDF /* friendifyDB.swift */; };
 		9912776FAEECDEBF30B42922 /* Pods_Friendify.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DFFA89AC515B8395FDB95AD /* Pods_Friendify.framework */; };
 		A0B7B96E2259A1BD008D1435 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0B7B96D2259A1BD008D1435 /* AppDelegate.swift */; };
 		A0B7B9702259A1BD008D1435 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0B7B96F2259A1BD008D1435 /* ViewController.swift */; };
@@ -41,6 +44,9 @@
 		4AF37E60E579DFEB21ADBA72 /* Pods-FriendifyUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FriendifyUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FriendifyUITests/Pods-FriendifyUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		4D7CF5E9B54F4750655F42D4 /* Pods-FriendifyTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FriendifyTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FriendifyTests/Pods-FriendifyTests.debug.xcconfig"; sourceTree = "<group>"; };
 		773A87D639FECC2821D545E3 /* Pods-Friendify.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Friendify.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Friendify/Pods-Friendify.debug.xcconfig"; sourceTree = "<group>"; };
+		7E0277F22264FD6900741DAA /* SpotifyiOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SpotifyiOS.framework; sourceTree = "<group>"; };
+		7EB2DBED225BF3030068ADDF /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		7EB2DBEF225BF7EE0068ADDF /* friendifyDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = friendifyDB.swift; sourceTree = "<group>"; };
 		994B3E1E5FF7ED858EE167AD /* Pods_FriendifyUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FriendifyUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9DFFA89AC515B8395FDB95AD /* Pods_Friendify.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Friendify.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0B7B96A2259A1BD008D1435 /* Friendify.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Friendify.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -67,6 +73,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9912776FAEECDEBF30B42922 /* Pods_Friendify.framework in Frameworks */,
+				7E0277F32264FD6900741DAA /* SpotifyiOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -105,6 +112,7 @@
 		2970F4D75CD6BE26BF3FE4BB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				7E0277F22264FD6900741DAA /* SpotifyiOS.framework */,
 				9DFFA89AC515B8395FDB95AD /* Pods_Friendify.framework */,
 				04CB1B3AACDC74368D418A48 /* Pods_FriendifyTests.framework */,
 				994B3E1E5FF7ED858EE167AD /* Pods_FriendifyUITests.framework */,
@@ -143,6 +151,8 @@
 				A0B7B9742259A1BE008D1435 /* Assets.xcassets */,
 				A0B7B9762259A1BE008D1435 /* LaunchScreen.storyboard */,
 				A0B7B9792259A1BE008D1435 /* Info.plist */,
+				7EB2DBED225BF3030068ADDF /* GoogleService-Info.plist */,
+				7EB2DBEF225BF7EE0068ADDF /* friendifyDB.swift */,
 			);
 			path = Friendify;
 			sourceTree = "<group>";
@@ -274,6 +284,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A0B7B9782259A1BE008D1435 /* LaunchScreen.storyboard in Resources */,
+				7EB2DBEE225BF3030068ADDF /* GoogleService-Info.plist in Resources */,
 				A0B7B9752259A1BE008D1435 /* Assets.xcassets in Resources */,
 				A0B7B9732259A1BD008D1435 /* Main.storyboard in Resources */,
 			);
@@ -305,19 +316,27 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Friendify/Pods-Friendify-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
-				"${BUILT_PRODUCTS_DIR}/AlamofireImage/AlamofireImage.framework",
-				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
-				"${BUILT_PRODUCTS_DIR}/Parse/Parse.framework",
+				"${BUILT_PRODUCTS_DIR}/BoringSSL-GRPC/openssl_grpc.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/Siesta/Siesta.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-C++/grpcpp.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-Core/grpc.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireImage.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Parse.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl_grpc.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Siesta.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpcpp.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpc.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -397,6 +416,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7EB2DBF0225BF7EE0068ADDF /* friendifyDB.swift in Sources */,
 				A0B7B9702259A1BD008D1435 /* ViewController.swift in Sources */,
 				A0B7B96E2259A1BD008D1435 /* AppDelegate.swift in Sources */,
 			);
@@ -576,6 +596,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = UJ8X974936;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = Friendify/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -596,6 +620,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = UJ8X974936;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = Friendify/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
