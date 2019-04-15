@@ -16,7 +16,11 @@ class LoginViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-
+    @IBAction func onLogin(_ sender: Any) {
+        //Validate user info
+        self.performSegue(withIdentifier: "loginSegue", sender: self)
+    }
+    
     @IBAction func onSignup(_ sender: Any) {
     }
     
