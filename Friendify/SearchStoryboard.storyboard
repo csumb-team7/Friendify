@@ -39,7 +39,7 @@
         <scene sceneID="CcR-UB-DQa">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="2d9-6o-9O0" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Search" id="u9J-ZD-LcG"/>
+                    <tabBarItem key="tabBarItem" title="Search" image="search-black" id="u9J-ZD-LcG"/>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="cLt-bb-dBf">
@@ -56,4 +56,7 @@
             <point key="canvasLocation" x="160.80000000000001" y="166.8665667166417"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="search-black" width="24" height="24"/>
+    </resources>
 </document>
