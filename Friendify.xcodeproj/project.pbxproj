@@ -8,10 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		12DBB2218DD676F41CC84D83 /* Pods_FriendifyUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 994B3E1E5FF7ED858EE167AD /* Pods_FriendifyUITests.framework */; };
+		4E74632A226D5DD100B6452A /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E746329226D5DD100B6452A /* SearchViewController.swift */; };
+		4E746330226DCA8100B6452A /* SearchClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E74632F226DCA8100B6452A /* SearchClass.swift */; };
+		4E746332226E4AAF00B6452A /* SingUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E746331226E4AAF00B6452A /* SingUpViewController.swift */; };
 		9912776FAEECDEBF30B42922 /* Pods_Friendify.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DFFA89AC515B8395FDB95AD /* Pods_Friendify.framework */; };
 		A01A46FA2265359D00D3EBF3 /* ProfileStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A01A46F92265359D00D3EBF3 /* ProfileStoryboard.storyboard */; };
 		A01A46FC226535AC00D3EBF3 /* HomeStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A01A46FB226535AC00D3EBF3 /* HomeStoryboard.storyboard */; };
 		A01A46FE22653BC200D3EBF3 /* SearchStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A01A46FD22653BC200D3EBF3 /* SearchStoryboard.storyboard */; };
+		A030B42E2267E13300EF7973 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A030B42D2267E13300EF7973 /* HomeViewController.swift */; };
+		A030B4302267E4A400EF7973 /* SongCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A030B42F2267E4A400EF7973 /* SongCell.swift */; };
 		A09B15BC225BF8C0004DFA1F /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A09B15BB225BF8C0004DFA1F /* LoginViewController.swift */; };
 		A0B7B96E2259A1BD008D1435 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0B7B96D2259A1BD008D1435 /* AppDelegate.swift */; };
 		A0B7B9702259A1BD008D1435 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0B7B96F2259A1BD008D1435 /* ViewController.swift */; };
@@ -44,12 +49,17 @@
 		04CB1B3AACDC74368D418A48 /* Pods_FriendifyTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FriendifyTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4AF37E60E579DFEB21ADBA72 /* Pods-FriendifyUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FriendifyUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FriendifyUITests/Pods-FriendifyUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		4D7CF5E9B54F4750655F42D4 /* Pods-FriendifyTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FriendifyTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FriendifyTests/Pods-FriendifyTests.debug.xcconfig"; sourceTree = "<group>"; };
+		4E746329226D5DD100B6452A /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		4E74632F226DCA8100B6452A /* SearchClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchClass.swift; sourceTree = "<group>"; };
+		4E746331226E4AAF00B6452A /* SingUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingUpViewController.swift; sourceTree = "<group>"; };
 		773A87D639FECC2821D545E3 /* Pods-Friendify.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Friendify.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Friendify/Pods-Friendify.debug.xcconfig"; sourceTree = "<group>"; };
 		994B3E1E5FF7ED858EE167AD /* Pods_FriendifyUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FriendifyUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9DFFA89AC515B8395FDB95AD /* Pods_Friendify.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Friendify.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A01A46F92265359D00D3EBF3 /* ProfileStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ProfileStoryboard.storyboard; sourceTree = "<group>"; };
 		A01A46FB226535AC00D3EBF3 /* HomeStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HomeStoryboard.storyboard; sourceTree = "<group>"; };
 		A01A46FD22653BC200D3EBF3 /* SearchStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SearchStoryboard.storyboard; sourceTree = "<group>"; };
+		A030B42D2267E13300EF7973 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		A030B42F2267E4A400EF7973 /* SongCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongCell.swift; sourceTree = "<group>"; };
 		A09B15BB225BF8C0004DFA1F /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		A0B7B96A2259A1BD008D1435 /* Friendify.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Friendify.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0B7B96D2259A1BD008D1435 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -124,7 +134,6 @@
 			isa = PBXGroup;
 			children = (
 				A0B7B96C2259A1BD008D1435 /* Friendify */,
-				A0B7B9812259A1BE008D1435 /* FriendifyTests */,
 				A0B7B98C2259A1BE008D1435 /* FriendifyUITests */,
 				A0B7B96B2259A1BD008D1435 /* Products */,
 				160C80E6DFEA5FFF71A6B2D7 /* Pods */,
@@ -148,13 +157,19 @@
 				A0B7B96D2259A1BD008D1435 /* AppDelegate.swift */,
 				A0B7B96F2259A1BD008D1435 /* ViewController.swift */,
 				A0B7B9712259A1BD008D1435 /* Main.storyboard */,
+				4E746331226E4AAF00B6452A /* SingUpViewController.swift */,
 				A01A46FD22653BC200D3EBF3 /* SearchStoryboard.storyboard */,
+				4E746329226D5DD100B6452A /* SearchViewController.swift */,
 				A01A46F92265359D00D3EBF3 /* ProfileStoryboard.storyboard */,
 				A01A46FB226535AC00D3EBF3 /* HomeStoryboard.storyboard */,
 				A0B7B9742259A1BE008D1435 /* Assets.xcassets */,
 				A0B7B9762259A1BE008D1435 /* LaunchScreen.storyboard */,
 				A0B7B9792259A1BE008D1435 /* Info.plist */,
 				A09B15BB225BF8C0004DFA1F /* LoginViewController.swift */,
+				A030B42D2267E13300EF7973 /* HomeViewController.swift */,
+				A0B7B9812259A1BE008D1435 /* FriendifyTests */,
+				A030B42F2267E4A400EF7973 /* SongCell.swift */,
+				4E74632F226DCA8100B6452A /* SearchClass.swift */,
 			);
 			path = Friendify;
 			sourceTree = "<group>";
@@ -412,9 +427,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4E74632A226D5DD100B6452A /* SearchViewController.swift in Sources */,
+				4E746330226DCA8100B6452A /* SearchClass.swift in Sources */,
+				4E746332226E4AAF00B6452A /* SingUpViewController.swift in Sources */,
 				A09B15BC225BF8C0004DFA1F /* LoginViewController.swift in Sources */,
 				A0B7B9702259A1BD008D1435 /* ViewController.swift in Sources */,
 				A0B7B96E2259A1BD008D1435 /* AppDelegate.swift in Sources */,
+				A030B4302267E4A400EF7973 /* SongCell.swift in Sources */,
+				A030B42E2267E13300EF7973 /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -18,10 +18,11 @@ class LoginViewController: UIViewController {
     
     @IBAction func onLogin(_ sender: Any) {
         //Validate user info
-        self.performSegue(withIdentifier: "loginSegue", sender: self)
+        self.performSegue(withIdentifier: "loginSegue", sender: nil)
     }
     
     @IBAction func onSignup(_ sender: Any) {
+    
     }
     
     /*

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -141,7 +141,7 @@
         <!--signup-->
         <scene sceneID="mE8-r7-txL">
             <objects>
-                <viewController title="signup" id="bbL-Ab-ULP" sceneMemberID="viewController">
+                <viewController title="signup" id="bbL-Ab-ULP" customClass="SingUpViewController" customModule="Friendify" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="c1K-Ju-1rV">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -170,6 +170,9 @@
                                 <state key="normal" title="Sign Up">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="signUp:" destination="bbL-Ab-ULP" eventType="touchUpInside" id="wOq-PX-9Kc"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sign Up" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bvr-1n-wnK">
                                 <rect key="frame" x="122.5" y="80" width="130.5" height="43"/>
@@ -233,6 +236,12 @@
                         <barButtonItem id="DMD-gy-8yC"/>
                     </toolbarItems>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="emailLabel" destination="YQj-Gi-C4f" id="0hV-nG-jmd"/>
+                        <outlet property="nameLabel" destination="iRR-vo-t6f" id="SPY-SI-3kr"/>
+                        <outlet property="passwordLabel" destination="GKA-tG-toO" id="3sP-90-evz"/>
+                        <outlet property="usernameLabel" destination="0q7-0m-5hY" id="7mw-L6-tCd"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="f1d-Hp-Lvd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -240,6 +249,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="title-white" width="150" height="150"/>
+        <image name="title-white" width="200" height="200"/>
     </resources>
 </document>
