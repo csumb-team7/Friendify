@@ -10,8 +10,10 @@ target 'Friendify' do
   pod 'Siesta', '~> 1.0'
   pod 'Siesta/UI', '~> 1.0'
   pod 'Firebase/Core'
+  pod 'Firebase/Auth'
   pod 'Firebase/Firestore'
- 
+  pod 'InstantSearchClient', '~> 6.0'
+
   target 'FriendifyTests' do
     inherit! :search_paths
     # Pods for testing

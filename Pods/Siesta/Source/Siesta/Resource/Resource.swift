@@ -179,7 +179,7 @@ public final class Resource: NSObject
         DispatchQueue.mainThreadPrecondition()
 
         self.service = service
-        self.url = URL(string: ":")!
+        self.url = URL(string: ":").forceUnwrapped(because: "Foundation considers single colon to be a valid URL")
 
         permanentFailure = RequestError(
             userMessage: NSLocalizedString("Cannot send request with invalid URL", comment: "userMessage"),
@@ -219,7 +219,7 @@ public final class Resource: NSObject
 
       - SeeAlso: `Resource.request(...)`
     */
-    public typealias RequestMutation = (inout URLRequest) -> ()
+    public typealias RequestMutation = (inout URLRequest) -> Void
 
     /**
       Initiates a network request for the given resource.
@@ -387,7 +387,7 @@ public final class Resource: NSObject
             var trackedRequest: Request?
             cacheRequest.onCompletion
                 {
-                _ in self.loadRequests.remove { $0 === trackedRequest }
+                _ in self.loadRequests.removeAll { $0 === trackedRequest }
                 }
 
             // Now we're ready to construct a chained request that will return either a
@@ -506,12 +506,12 @@ public final class Resource: NSObject
       where views are being rapidly discarded and recreated, and you no longer need the resource, but want to give other
       views a chance to express interest in it before canceling any requests.
 
-      The `callback` is called aftrer the given delay, regardless of whether the request was cancelled.
+      The `callback` is called after the given delay, regardless of whether the request was cancelled.
     */
     @objc
     public func cancelLoadIfUnobserved(afterDelay delay: TimeInterval, then callback: @escaping () -> Void = {})
         {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.05)
+        DispatchQueue.main.asyncAfter(deadline: .now() + delay)
             {
             self.cancelLoadIfUnobserved()
             callback()
@@ -524,8 +524,8 @@ public final class Resource: NSObject
         req.onCompletion
             {
             [weak self] _ in
-            self?.allRequests.remove { $0.state == .completed }
-            self?.loadRequests.remove { $0.state == .completed }
+            self?.allRequests.removeAll { $0.state == .completed }
+            self?.loadRequests.removeAll { $0.state == .completed }
             }
         }
 
