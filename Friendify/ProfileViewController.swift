@@ -7,14 +7,34 @@
 //
 
 import UIKit
+import AlamofireImage
 
 class ProfileViewController: UIViewController {
 
+    @IBOutlet weak var profileImage: UIImageView!
+
+    @IBOutlet weak var profileName: UILabel!
+    @IBOutlet weak var friendsNumLabel: UILabel!
+    
+    @IBOutlet weak var profileBioLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        profileImage.layer.borderWidth = 1
+        profileImage.layer.masksToBounds = false
+        profileImage.layer.cornerRadius = profileImage.frame.height/2
+        profileImage.clipsToBounds = true
+        
+        profileName.text = "Friendify"
+        friendsNumLabel.text = "20"
+        
+        profileBioLabel.text = "Friendify is a super cool app!"
+        
     }
+    
+    
     
 
     /*
