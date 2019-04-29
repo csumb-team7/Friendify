@@ -6,7 +6,12 @@ target 'Friendify' do
   use_frameworks!
 
   # Pods for Friendify
-  pod 'Parse'
+  pod 'Siesta', '~> 1.0'
+  pod 'Siesta/UI', '~> 1.0'
+  pod 'Firebase/Core'
+  pod 'Firebase/Auth'
+  pod 'Firebase/Firestore'
+  pod 'InstantSearchClient', '~> 6.0'
   pod 'AlamofireImage'
 	
   target 'FriendifyTests' do

@@ -12,6 +12,8 @@
 		4E74632A226D5DD100B6452A /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E746329226D5DD100B6452A /* SearchViewController.swift */; };
 		4E746330226DCA8100B6452A /* SearchClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E74632F226DCA8100B6452A /* SearchClass.swift */; };
 		4E746332226E4AAF00B6452A /* SingUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E746331226E4AAF00B6452A /* SingUpViewController.swift */; };
+		7ED576B12277B8DC004F6DCF /* DB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ED576B02277B8DC004F6DCF /* DB.swift */; };
+		7ED576B32277BFD1004F6DCF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7ED576B22277BFD1004F6DCF /* GoogleService-Info.plist */; };
 		9912776FAEECDEBF30B42922 /* Pods_Friendify.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DFFA89AC515B8395FDB95AD /* Pods_Friendify.framework */; };
 		A01A46FA2265359D00D3EBF3 /* ProfileStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A01A46F92265359D00D3EBF3 /* ProfileStoryboard.storyboard */; };
 		A01A46FC226535AC00D3EBF3 /* HomeStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A01A46FB226535AC00D3EBF3 /* HomeStoryboard.storyboard */; };
@@ -55,6 +57,8 @@
 		4E74632F226DCA8100B6452A /* SearchClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchClass.swift; sourceTree = "<group>"; };
 		4E746331226E4AAF00B6452A /* SingUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingUpViewController.swift; sourceTree = "<group>"; };
 		773A87D639FECC2821D545E3 /* Pods-Friendify.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Friendify.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Friendify/Pods-Friendify.debug.xcconfig"; sourceTree = "<group>"; };
+		7ED576B02277B8DC004F6DCF /* DB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DB.swift; sourceTree = "<group>"; };
+		7ED576B22277BFD1004F6DCF /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		994B3E1E5FF7ED858EE167AD /* Pods_FriendifyUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FriendifyUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9DFFA89AC515B8395FDB95AD /* Pods_Friendify.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Friendify.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A01A46F92265359D00D3EBF3 /* ProfileStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ProfileStoryboard.storyboard; sourceTree = "<group>"; };
@@ -135,6 +139,7 @@
 		A0B7B9612259A1BD008D1435 = {
 			isa = PBXGroup;
 			children = (
+				7ED576B22277BFD1004F6DCF /* GoogleService-Info.plist */,
 				A0B7B96C2259A1BD008D1435 /* Friendify */,
 				A0B7B98C2259A1BE008D1435 /* FriendifyUITests */,
 				A0B7B96B2259A1BD008D1435 /* Products */,
@@ -173,6 +178,7 @@
 				A0B7B9812259A1BE008D1435 /* FriendifyTests */,
 				A030B42F2267E4A400EF7973 /* SongCell.swift */,
 				4E74632F226DCA8100B6452A /* SearchClass.swift */,
+				7ED576B02277B8DC004F6DCF /* DB.swift */,
 			);
 			path = Friendify;
 			sourceTree = "<group>";
@@ -309,6 +315,7 @@
 				A0B7B9732259A1BD008D1435 /* Main.storyboard in Resources */,
 				A01A46FC226535AC00D3EBF3 /* HomeStoryboard.storyboard in Resources */,
 				A01A46FE22653BC200D3EBF3 /* SearchStoryboard.storyboard in Resources */,
+				7ED576B32277BFD1004F6DCF /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -340,8 +347,16 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-Friendify/Pods-Friendify-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/AlamofireImage/AlamofireImage.framework",
-				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
-				"${BUILT_PRODUCTS_DIR}/Parse/Parse.framework",
+				"${BUILT_PRODUCTS_DIR}/BoringSSL-GRPC/openssl_grpc.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/InstantSearchClient/InstantSearchClient.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/Siesta/Siesta.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-C++/grpcpp.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-Core/grpc.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
@@ -349,8 +364,16 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireImage.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Parse.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl_grpc.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/InstantSearchClient.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Siesta.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpcpp.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpc.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -433,6 +456,7 @@
 				4E74632A226D5DD100B6452A /* SearchViewController.swift in Sources */,
 				4E746330226DCA8100B6452A /* SearchClass.swift in Sources */,
 				4E746332226E4AAF00B6452A /* SingUpViewController.swift in Sources */,
+				7ED576B12277B8DC004F6DCF /* DB.swift in Sources */,
 				A09B15BC225BF8C0004DFA1F /* LoginViewController.swift in Sources */,
 				A0B7B9702259A1BD008D1435 /* ViewController.swift in Sources */,
 				A0B7B96E2259A1BD008D1435 /* AppDelegate.swift in Sources */,
