@@ -18,6 +18,11 @@ class ProfileViewController: UIViewController {
     
     @IBOutlet weak var profileBioLabel: UILabel!
     
+    @IBAction func onEditProfile(_ sender: Any) {
+        //Validate user info
+        self.performSegue(withIdentifier: "profileSegue", sender: nil)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
