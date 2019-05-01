@@ -49,7 +49,7 @@ class LoginViewController: UIViewController {
             }
         }else{
             errorLabel.isHidden = false
-            errorLabel.text = "Please type the username and the password"
+            errorLabel.text = "Please type the email and the password"
         }
         /*
         
