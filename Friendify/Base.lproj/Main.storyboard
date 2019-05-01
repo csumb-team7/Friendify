@@ -82,6 +82,8 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="passwordTextField" destination="gcj-cd-hCf" id="NtQ-y7-Mdt"/>
+                        <outlet property="usernameTextField" destination="QAE-3l-aVt" id="WHs-Bu-LGh"/>
                         <segue destination="r8i-dv-MCx" kind="presentation" identifier="loginSegue" id="toV-2T-yI4"/>
                     </connections>
                 </viewController>
