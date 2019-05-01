@@ -98,7 +98,14 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="KcN-ae-t0I"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Home" id="8he-o8-phJ"/>
+                    <navigationItem key="navigationItem" title="Home" id="8he-o8-phJ">
+                        <barButtonItem key="leftBarButtonItem" title="Logout" id="dvb-eX-7Qk">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="onLogout:" destination="4fj-3v-8XW" id="Ca5-QR-ARS"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="jGZ-5v-5K4" id="buM-SH-Xaa"/>
                     </connections>
@@ -133,6 +140,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="home-black" width="25.600000381469727" height="25.600000381469727"/>
+        <image name="home-black" width="19.200000762939453" height="19.200000762939453"/>
     </resources>
 </document>
