@@ -41,6 +41,8 @@ class LoginViewController: UIViewController {
         if(username?.characters.count != 0 && password?.characters.count != 0){
             errorLabel.isHidden = true
             myDb.login(email: username!, pass: password!, success: { (response) in
+                self.usernameTextField.text = ""
+                self.passwordTextField.text = ""
                 UserDefaults.standard.set(true, forKey: "loggedIn")
                 self.performSegue(withIdentifier: "loginSegue", sender: nil)
             }) { (error) in
