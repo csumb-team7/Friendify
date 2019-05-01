@@ -63,6 +63,12 @@
                                     <action selector="onLogin:" destination="BYZ-38-t0r" eventType="touchUpInside" id="3ae-iO-n1N"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pES-PB-hKc">
+                                <rect key="frame" x="40" y="220" width="295" height="0.0"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.043137254901960784" green="0.40000000000000002" blue="0.13725490196078433" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -72,9 +78,12 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="mTQ-VF-nnl" secondAttribute="bottom" constant="25" id="74h-Iz-yVn"/>
                             <constraint firstItem="mTQ-VF-nnl" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="7qZ-Zn-MJ3"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="QAE-3l-aVt" secondAttribute="trailing" constant="40" id="KfF-CE-El0"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="pES-PB-hKc" secondAttribute="trailing" constant="40" id="LL7-y8-pHV"/>
                             <constraint firstItem="gcj-cd-hCf" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="40" id="OlJ-xQ-dfg"/>
+                            <constraint firstItem="pES-PB-hKc" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="40" id="TYr-JT-yrK"/>
                             <constraint firstItem="CEZ-vn-OHT" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="35" id="Vx1-lU-T4a"/>
                             <constraint firstItem="gcj-cd-hCf" firstAttribute="top" secondItem="QAE-3l-aVt" secondAttribute="bottom" constant="25" id="d78-Xd-2Ft"/>
+                            <constraint firstItem="pES-PB-hKc" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="200" id="dEL-bp-0Nu"/>
                             <constraint firstItem="Rhh-Pn-32h" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="fAA-dC-s0j"/>
                             <constraint firstItem="QAE-3l-aVt" firstAttribute="top" secondItem="CEZ-vn-OHT" secondAttribute="bottom" constant="30" id="hF9-6a-YpE"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="gcj-cd-hCf" secondAttribute="trailing" constant="40" id="vGb-Xg-Y1l"/>
@@ -82,6 +91,8 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="errorLabel" destination="pES-PB-hKc" id="vAo-XN-bfb"/>
+                        <outlet property="loginBtn" destination="Rhh-Pn-32h" id="qoi-fy-pDd"/>
                         <outlet property="passwordTextField" destination="gcj-cd-hCf" id="NtQ-y7-Mdt"/>
                         <outlet property="usernameTextField" destination="QAE-3l-aVt" id="WHs-Bu-LGh"/>
                         <segue destination="r8i-dv-MCx" kind="presentation" identifier="loginSegue" id="toV-2T-yI4"/>

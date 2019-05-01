@@ -42,7 +42,11 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         // Do any additional setup after loading the view.
     }
     
-
+    @IBAction func onLogout(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+        UserDefaults.standard.set(false, forKey: "loggedIn")
+    }
+    
     /*
     // MARK: - Navigation
 
