@@ -16,13 +16,62 @@ class SingUpViewController: UIViewController {
     @IBOutlet weak var emailLabel: UITextField!
     @IBOutlet weak var usernameLabel: UITextField!
     
+    @IBOutlet weak var errorLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        errorLabel.isHidden = true
 
         // Do any additional setup after loading the view.
     }
     
     @IBAction func signUp(_ sender: Any) {
+    
+        let username = usernameLabel.text
+        let password = passwordLabel.text
+        let email = emailLabel.text
+        let name = nameLabel.text
+        let myDb = DB.init()
+        
+        if (username?.characters.count != 0 && password?.characters.count != 0 && email?.characters.count != 0 && name?.characters.count != 0){
+            errorLabel.isHidden = true
+            myDb.signup(email: email!, pass: password!, success: { (response) in
+                print("user created")
+                self.usernameLabel.text = ""
+                self.passwordLabel.text = ""
+                self.emailLabel.text = ""
+                self.nameLabel.text = ""
+                
+                //Log the user in
+                myDb.login(email: email!, pass: password!, success: { (response) in
+                    UserDefaults.standard.set(true, forKey: "loggedIn")
+                    //Add data to the user
+                    myDb.addUserInfo(data: ["name" : name!], success: { (response) in
+                        self.errorLabel.isHidden = true;
+                        //Perform the segue
+                        self.performSegue(withIdentifier: "signupSegue", sender: nil)
+                    }, failure: { (error) in
+                        print("error data")
+                        self.errorLabel.isHidden = false;
+                        self.errorLabel.text = error
+                    })
+                }) { (error) in
+                    print("error login")
+                    self.errorLabel.isHidden = false;
+                    self.errorLabel.text = error.localizedDescription
+                }
+            }) { (error) in
+                print("error signup")
+                self.errorLabel.isHidden = false
+                self.errorLabel.text = error.localizedDescription
+            }
+            
+        }else{
+            errorLabel.isHidden = false
+            errorLabel.text = "Please type username, email, password and name"
+        }
+        
+        
         /*let user = PFUser()
         user.username = usernameLabel.text
         user.password = passwordLabel.text
