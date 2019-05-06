@@ -25,6 +25,8 @@ class ProfileViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let myDB=DB.init()
+
 
         // Do any additional setup after loading the view.
         profileImage.layer.borderWidth = 1
