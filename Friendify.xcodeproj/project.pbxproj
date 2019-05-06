@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		12DBB2218DD676F41CC84D83 /* Pods_FriendifyUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 994B3E1E5FF7ED858EE167AD /* Pods_FriendifyUITests.framework */; };
+		1505477B2280D1F300893540 /* LinkAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1505477A2280D1F300893540 /* LinkAccountViewController.swift */; };
 		158202702271063F00755C5C /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1582026F2271063F00755C5C /* ProfileViewController.swift */; };
 		4E74632A226D5DD100B6452A /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E746329226D5DD100B6452A /* SearchViewController.swift */; };
 		4E746330226DCA8100B6452A /* SearchClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E74632F226DCA8100B6452A /* SearchClass.swift */; };
@@ -50,6 +51,7 @@
 
 /* Begin PBXFileReference section */
 		04CB1B3AACDC74368D418A48 /* Pods_FriendifyTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FriendifyTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1505477A2280D1F300893540 /* LinkAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkAccountViewController.swift; sourceTree = "<group>"; };
 		1582026F2271063F00755C5C /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		4AF37E60E579DFEB21ADBA72 /* Pods-FriendifyUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FriendifyUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FriendifyUITests/Pods-FriendifyUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		4D7CF5E9B54F4750655F42D4 /* Pods-FriendifyTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FriendifyTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FriendifyTests/Pods-FriendifyTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -173,6 +175,7 @@
 				A0B7B9742259A1BE008D1435 /* Assets.xcassets */,
 				A0B7B9762259A1BE008D1435 /* LaunchScreen.storyboard */,
 				A0B7B9792259A1BE008D1435 /* Info.plist */,
+				1505477A2280D1F300893540 /* LinkAccountViewController.swift */,
 				A09B15BB225BF8C0004DFA1F /* LoginViewController.swift */,
 				A030B42D2267E13300EF7973 /* HomeViewController.swift */,
 				A0B7B9812259A1BE008D1435 /* FriendifyTests */,
@@ -463,6 +466,7 @@
 				158202702271063F00755C5C /* ProfileViewController.swift in Sources */,
 				A030B4302267E4A400EF7973 /* SongCell.swift in Sources */,
 				A030B42E2267E13300EF7973 /* HomeViewController.swift in Sources */,
+				1505477B2280D1F300893540 /* LinkAccountViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -639,7 +643,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = UJ8X974936;
+				DEVELOPMENT_TEAM = 2KN693TKMT;
 				INFOPLIST_FILE = Friendify/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -659,7 +663,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = UJ8X974936;
+				DEVELOPMENT_TEAM = 2KN693TKMT;
 				INFOPLIST_FILE = Friendify/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -723,7 +727,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = UJ8X974936;
+				DEVELOPMENT_TEAM = 2KN693TKMT;
 				INFOPLIST_FILE = FriendifyUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -744,7 +748,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = UJ8X974936;
+				DEVELOPMENT_TEAM = 2KN693TKMT;
 				INFOPLIST_FILE = FriendifyUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

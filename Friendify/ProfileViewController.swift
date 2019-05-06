@@ -18,6 +18,10 @@ class ProfileViewController: UIViewController {
     
     @IBOutlet weak var profileBioLabel: UILabel!
     
+    //@IBAction func linkAccount(_ sender: Any) {
+      //  print("Hello")
+                
+    //}
     @IBAction func onEditProfile(_ sender: Any) {
         //Validate user info
         self.performSegue(withIdentifier: "profileSegue", sender: nil)
@@ -26,7 +30,6 @@ class ProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         let myDB=DB.init()
-
 
         // Do any additional setup after loading the view.
         profileImage.layer.borderWidth = 1
@@ -40,7 +43,6 @@ class ProfileViewController: UIViewController {
         profileBioLabel.text = "Friendify is a super cool app!"
         
     }
-    
     
     
 
