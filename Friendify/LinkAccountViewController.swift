@@ -33,6 +33,10 @@ class LinkAccountViewController: UIViewController, UIWebViewDelegate {
             self.display.removeFromSuperview()
             myDB.authToken = (urlCodes?.split(separator: "=")[1].description)!
             myDB.requestToken()
+            if(myDB.authToken != "")
+            {
+                self.performSegue(withIdentifier: "backToProfile", sender: self)
+            }
             return false;
         }
         return true
