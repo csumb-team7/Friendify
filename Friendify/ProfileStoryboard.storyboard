@@ -164,6 +164,7 @@
         <image name="stockProfileImage" width="1051" height="700"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="Hmv-MK-g7B"/>
         <segue reference="lmp-vR-y9S"/>
     </inferredMetricsTieBreakers>
 </document>
