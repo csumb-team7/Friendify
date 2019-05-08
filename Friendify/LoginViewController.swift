@@ -26,8 +26,16 @@ class LoginViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        let myDb = DB.init()
         if UserDefaults.standard.bool(forKey: "loggedIn") == true{
-            self.performSegue(withIdentifier: "loginSegue", sender: nil)
+            
+            
+            myDb.login(email: UserDefaults.standard.string(forKey: "username") ?? "", pass: UserDefaults.standard.string(forKey: "password") ?? "", success: { (str) in
+                self.performSegue(withIdentifier: "loginSegue", sender: nil)
+            }) { (err) in
+                print(err)
+            }
+            
         }
     }
     
@@ -44,6 +52,8 @@ class LoginViewController: UIViewController {
                 self.usernameTextField.text = ""
                 self.passwordTextField.text = ""
                 UserDefaults.standard.set(true, forKey: "loggedIn")
+                UserDefaults.standard.set(username, forKey: "username")
+                UserDefaults.standard.set(password, forKey: "password")
                 self.performSegue(withIdentifier: "loginSegue", sender: nil)
             }) { (error) in
                 self.errorLabel.isHidden = false;

@@ -41,6 +41,9 @@ final class DB{
                 failure(error!)
                 return
             }
+            let uid = Auth.auth().currentUser?.uid
+            self.db.collection("timeline").document(uid!).setData(["timeline": [Any]()])
+            self.db.collection("posts").document(uid!).setData(["posts": [Any]()])
             
             success("\(authResult.user.email!) created")
             
@@ -173,12 +176,15 @@ final class DB{
             let uid = Auth.auth().currentUser?.uid
             let ref = db.collection("users").document(uid!)
             let changeRequest = Auth.auth().currentUser?.createProfileChangeRequest()
-            changeRequest?.displayName = data["name"] as? String
-            changeRequest?.commitChanges { (error) in
-                print(error?.localizedDescription)
+            let name = data["name"] as? String ?? "";
+            if (name != ""){
+                changeRequest?.displayName = name
+                changeRequest?.commitChanges { (error) in
+                    print(error?.localizedDescription)
+                    return
+                }
             }
-            db.collection("timeline").document(uid!).setData(["timeline": [Any]()])
-            db.collection("posts").document(uid!).setData(["posts": [Any]()])
+            
             userData["objectID"] = uid
             userData["following"] = [String]()
             userData["followers"] = [String]()
@@ -196,6 +202,7 @@ final class DB{
             }
         }
     }
+    
     
     
     func searchUsers(keyword: String,success:  @escaping(String) -> (), failure: @escaping (String) -> ()){
@@ -253,6 +260,33 @@ final class DB{
             $0.headers["Authorization"] = "Bearer "+self.userToken
         }
         
+        let getStuff = self.MyAPI.resource("me/top/tracks")
+        getStuff.request(.get, urlEncoded: [:])
+            .onSuccess{data in
+                print("inOnSuccess")
+                //print(data.jsonDict["items"])
+                let dic: [ Any] = data.jsonDict["items"] as! [Any]
+                
+                success(dic)
+                //self.get.overrideLocalContent(with: data.jsonDict)
+            } .onFailure{error in
+                
+                failure("Error: " + error.localizedDescription)
+        }
+    }
+    func getUserTopArtists(success: @escaping([Any]) -> (), failure: @escaping (String) -> ()){
+        if(self.userToken == ""){
+            failure("Error. Spotify not linked yet")
+            return
+        }
+        MyAPI.configure("me/top/tracks") {
+            $0.headers["Authorization"] = "Bearer "+self.userToken
+        }
+        
+        MyAPI.configure("me/top/artists") {
+            $0.headers["Authorization"] = "Bearer "+self.userToken
+        }
+        
         let getStuff = self.MyAPI.resource("me/top/artists")
         getStuff.request(.get, urlEncoded: [:])
             .onSuccess{data in
@@ -267,7 +301,29 @@ final class DB{
                 failure("Error: " + error.localizedDescription)
         }
     }
-    
+    func getSongBySpotifyURI(uri:String,success: @escaping([String:Any]) -> (), failure: @escaping (String) -> () ){
+        if(self.userToken == ""){
+            failure("Error. Spotify not linked yet")
+            return
+        }
+        MyAPI.configure("tracks") {
+            $0.headers["Authorization"] = "Bearer "+self.userToken
+        }
+        
+        let getStuff = self.MyAPI.resource("tracks")
+        getStuff.request(.get, urlEncoded: [:])
+            .onSuccess{data in
+                print("inOnSuccess")
+                //print(data.jsonDict["items"])
+                let dic: [String:Any] = data.jsonDict["items"] as! [String:Any]
+                
+                success(dic)
+                //self.get.overrideLocalContent(with: data.jsonDict)
+            } .onFailure{error in
+                
+                failure("Error: " + error.localizedDescription)
+        }
+    }
     func getSpotifyUserData(success: @escaping([String:String]) -> (), failure: @escaping (String) -> ()){
         
         MyAPI.configure("/me") {
