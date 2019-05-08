@@ -242,12 +242,19 @@ final class DB{
             //print(resource.latestData)
             if case .newData = event{
                 self?.userToken = resource.latestData!.jsonDict["access_token"] as! String
+                //Safe token request
+                self?.addUserInfo(data: ["userToken" : self?.userToken as! String], success: { (response) in
+                   print("Token saved")
+                }, failure: { (error) in
+                    print(error)
+                })
                 //self?.getUserData()
             }
         }
     }
     
     func getUserTopTracks(success: @escaping([Any]) -> (), failure: @escaping (String) -> ()){
+        
         if(self.userToken == ""){
             failure("Error. Spotify not linked yet")
             return

@@ -19,23 +19,21 @@ class LinkAccountViewController: UIViewController, UIWebViewDelegate {
         super.viewDidLoad()
         self.display.delegate = self;
         loadHtmlCode()
-        print("Hey")
 
         // Do any additional setup after loading the view.
     }
     
     func webView(_ webView: UIWebView, shouldStartLoadWith request: URLRequest, navigationType: UIWebView.NavigationType) -> Bool {
-        print("HELLO!")
         let myDB: DB = DB.init()
         let urlCodes = request.mainDocumentURL?.absoluteString
         if((urlCodes?.hasPrefix("https://google"))!){
-            
             self.display.removeFromSuperview()
             myDB.authToken = (urlCodes?.split(separator: "=")[1].description)!
             myDB.requestToken()
             if(myDB.authToken != "")
             {
-                self.performSegue(withIdentifier: "backToProfile", sender: self)
+                //self.performSegue(withIdentifier: "backToProfile", sender: self)
+                self.dismiss(animated: true, completion: nil)
             }
             return false;
         }

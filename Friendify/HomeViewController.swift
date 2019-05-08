@@ -35,20 +35,37 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let myDB = DB.init()
-        
-        
 
         tableView.dataSource = self
         tableView.delegate = self
+        
+        let myDb = DB.init()
+        
+        myDb.getUserTopTracks(success: { (response) in
+            print(response)
+        }) { (error) in
+            print(error)
+        }
     
         
         // Do any additional setup after loading the view.
     }
     
     @IBAction func onLogout(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
-        UserDefaults.standard.set(false, forKey: "loggedIn")
+        print("Wazaaaaaaaa")
+        
+        tableView.dataSource = self
+        tableView.delegate = self
+        
+        let myDb = DB.init()
+        
+        myDb.getUserTopTracks(success: { (response) in
+            print(response)
+        }) { (error) in
+            print(error)
+        }
+        //self.dismiss(animated: true, completion: nil)
+        //UserDefaults.standard.set(false, forKey: "loggedIn")
     }
     
     /*
