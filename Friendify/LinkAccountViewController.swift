@@ -32,7 +32,8 @@ class LinkAccountViewController: UIViewController, UIWebViewDelegate {
             myDB.requestToken()
             if(myDB.authToken != "")
             {
-                self.performSegue(withIdentifier: "backToProfile", sender: self)
+                //self.performSegue(withIdentifier: "backToProfile", sender: self)
+                self.dismiss(animated: true, completion: nil)
             }
             return false;
         }

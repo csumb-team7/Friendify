@@ -22,6 +22,7 @@ class ProfileViewController: UIViewController {
       //  print("Hello")
                 
     //}
+    
     @IBAction func onEditProfile(_ sender: Any) {
         //Validate user info
         self.performSegue(withIdentifier: "profileSegue", sender: nil)
