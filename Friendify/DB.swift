@@ -364,7 +364,7 @@ final class DB{
         }
     }
     
-    func getUserById(name: String, result: @escaping ( _ response: Dictionary<String, Any>?) ->  Void){
+    func getUserById(name: String, result: @escaping ( _ response: [String: Any]) ->  Void){
         
         let docRef = db.collection("users").document(name)
         
@@ -373,10 +373,10 @@ final class DB{
                 // let dataDescription = //
                 print("here")
                 //document.data().map(String.init(describing:)) ?? "nil"
-                result(document.data())
+                result(document.data()!)
             } else {
                 print("error")
-                result(nil)
+                result([String:Any]())
             }
         }
     }
