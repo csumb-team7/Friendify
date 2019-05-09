@@ -22,6 +22,14 @@ class ProfileViewController: UIViewController {
       //  print("Hello")
                 
     //}
+    @IBAction func addButton(_ sender: Any) {
+        let myDB = DB.init()
+        myDB.getUserTopTracks(success: { (list) in
+            print(list)
+        }) { (str) in
+            print(str)
+        }
+    }
     
     @IBAction func onEditProfile(_ sender: Any) {
         //Validate user info
@@ -31,7 +39,7 @@ class ProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         let myDB=DB.init()
-
+        
         // Do any additional setup after loading the view.
         profileImage.layer.borderWidth = 1
         profileImage.layer.masksToBounds = false
@@ -42,6 +50,11 @@ class ProfileViewController: UIViewController {
         friendsNumLabel.text = "20"
         
         profileBioLabel.text = "Friendify is a super cool app!"
+        myDB.getUserTopTracks(success: { (list) in
+            print(list)
+        }) { (str) in
+            print(str)
+        }
         
     }
     

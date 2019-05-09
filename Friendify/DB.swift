@@ -14,25 +14,16 @@ import InstantSearchClient
 final class DB{
     
     var db: Firestore
-    var authToken: String;
-    var userToken: String;
-    let MyAPI = Service(baseURL: "https://api.spotify.com/v1/")
-    let client_id = "85b2a1f5241642e9829fed00296d330d";
-    let client_secret = "61f17839ca8546abaddac04c21c4a209";
-    var authProcess: Resource
-    let client = Client(appID: "XSLL75CT90", apiKey: "f788a429f403bee75ffd22e88e2a24a7")
-    let index: Index
+    static  var authToken = ""
+    static  var userToken = "";
+    static let MyAPI = Service(baseURL: "https://api.spotify.com/v1/")
+    static let client_id = "85b2a1f5241642e9829fed00296d330d";
+    static let client_secret = "61f17839ca8546abaddac04c21c4a209";
+    static var authProcess = MyAPI.resource(absoluteURL: "https://accounts.spotify.com/api/token")
+    static let client = Client(appID: "XSLL75CT90", apiKey: "f788a429f403bee75ffd22e88e2a24a7")
+     static let index = client.index(withName: "users")
     init() {
-        //FirebaseApp.configure()
-        db = Firestore.firestore()
-        let client = Client(appID: "XSLL75CT90", apiKey: "f788a429f403bee75ffd22e88e2a24a7")
-        index = client.index(withName: "users")
-        
-        authToken=""
-        userToken=""
-        
-        self.authProcess = self.MyAPI.resource(absoluteURL: "https://accounts.spotify.com/api/token")
-        
+         db =  Firestore.firestore()
     }
     
     func signup(email:String, pass: String, success:  @escaping(String) -> (), failure: @escaping (Error) -> ()){
@@ -56,6 +47,7 @@ final class DB{
                 failure(error)
                 return
             }
+           
             success("\(String(describing: user?.user.uid)) logged in")
         }
     }
@@ -196,7 +188,7 @@ final class DB{
                     failure("Error writing user data: \(err)")
                 } else {
                     
-                    self.index.partialUpdateObject(userData, withID: uid!)
+                    DB.index.partialUpdateObject(userData, withID: uid!)
                     success("User data successfully written!")
                 }
             }
@@ -206,7 +198,7 @@ final class DB{
     
     
     func searchUsers(keyword: String,success:  @escaping(String) -> (), failure: @escaping (String) -> ()){
-        let index = client.index(withName: "users")
+        let index = DB.client.index(withName: "users")
         let query = Query(query: keyword)
         query.attributesToRetrieve = ["name", "objectID"]
         query.hitsPerPage = 50
@@ -220,30 +212,33 @@ final class DB{
         })
     }
     func requestToken(){
-        print(authToken)
+        print(DB.authToken)
         let postData = NSMutableData(data: "client_id=85b2a1f5241642e9829fed00296d330d".data(using: String.Encoding.utf8)!)
         postData.append("&client_secret=61f17839ca8546abaddac04c21c4a209".data(using: String.Encoding.utf8)!)
         postData.append("&grant_type=authorization_code".data(using: String.Encoding.utf8)!)
-        postData.append(("&code="+authToken).data(using: String.Encoding.utf8)!)
+        postData.append(("&code="+DB.authToken).data(using: String.Encoding.utf8)!)
         postData.append("&redirect_uri=https://google.com".data(using: String.Encoding.utf8)!)
-        authProcess.request(.post, data: postData as Data, contentType: "application/x-www-form-urlencoded" )
+        DB.authProcess.request(.post, data: postData as Data, contentType: "application/x-www-form-urlencoded" )
             .onSuccess{data in
                 print(data.jsonDict)
-                self.authProcess.overrideLocalContent(with: data.jsonDict)
+                DB.userToken = data.jsonDict["access_token"] as! String
+                DB.authProcess.overrideLocalContent(with: data.jsonDict)
             }
             .onFailure{error in
                 print (error)
         }
         
-        authProcess.addObserver(owner: self) {
+        DB.authProcess.addObserver(owner: self) {
             [weak self] resource, event in
             print("In OBSERVER")
             //print(event)
             //print(resource.latestData)
             if case .newData = event{
-                self?.userToken = resource.latestData!.jsonDict["access_token"] as! String
+                DB.userToken = resource.latestData!.jsonDict["access_token"] as! String
+                print("user TOKEN: " + DB.userToken);
+                //self?.authToken =
                 //Safe token request
-                self?.addUserInfo(data: ["userToken" : self?.userToken as! String], success: { (response) in
+                    self!.addUserInfo(data: ["userToken" : DB.userToken as! String], success: { (response) in
                    print("Token saved")
                 }, failure: { (error) in
                     print(error)
@@ -254,20 +249,20 @@ final class DB{
     }
     
     func getUserTopTracks(success: @escaping([Any]) -> (), failure: @escaping (String) -> ()){
-        
-        if(self.userToken == ""){
+        print("user TOKEN IN FUNC: " + DB.userToken);
+        if(DB.userToken == ""){
             failure("Error. Spotify not linked yet")
             return
         }
-        MyAPI.configure("me/top/tracks") {
-            $0.headers["Authorization"] = "Bearer "+self.userToken
+        DB.MyAPI.configure("me/top/tracks") {
+            $0.headers["Authorization"] = "Bearer "+DB.userToken
         }
         
-        MyAPI.configure("me/top/artists") {
-            $0.headers["Authorization"] = "Bearer "+self.userToken
+        DB.MyAPI.configure("me/top/artists") {
+            $0.headers["Authorization"] = "Bearer "+DB.userToken
         }
         
-        let getStuff = self.MyAPI.resource("me/top/tracks")
+        let getStuff = DB.MyAPI.resource("me/top/tracks")
         getStuff.request(.get, urlEncoded: [:])
             .onSuccess{data in
                 print("inOnSuccess")
@@ -282,19 +277,19 @@ final class DB{
         }
     }
     func getUserTopArtists(success: @escaping([Any]) -> (), failure: @escaping (String) -> ()){
-        if(self.userToken == ""){
+        if(DB.userToken == ""){
             failure("Error. Spotify not linked yet")
             return
         }
-        MyAPI.configure("me/top/tracks") {
-            $0.headers["Authorization"] = "Bearer "+self.userToken
+        DB.MyAPI.configure("me/top/tracks") {
+            $0.headers["Authorization"] = "Bearer "+DB.userToken
         }
         
-        MyAPI.configure("me/top/artists") {
-            $0.headers["Authorization"] = "Bearer "+self.userToken
+        DB.MyAPI.configure("me/top/artists") {
+            $0.headers["Authorization"] = "Bearer "+DB.userToken
         }
         
-        let getStuff = self.MyAPI.resource("me/top/artists")
+        let getStuff = DB.MyAPI.resource("me/top/artists")
         getStuff.request(.get, urlEncoded: [:])
             .onSuccess{data in
                 print("inOnSuccess")
@@ -309,15 +304,15 @@ final class DB{
         }
     }
     func getSongBySpotifyURI(uri:String,success: @escaping([String:Any]) -> (), failure: @escaping (String) -> () ){
-        if(self.userToken == ""){
+        if(DB.userToken == ""){
             failure("Error. Spotify not linked yet")
             return
         }
-        MyAPI.configure("tracks") {
-            $0.headers["Authorization"] = "Bearer "+self.userToken
+        DB.MyAPI.configure("tracks") {
+            $0.headers["Authorization"] = "Bearer "+DB.userToken
         }
         
-        let getStuff = self.MyAPI.resource("tracks")
+        let getStuff = DB.MyAPI.resource("tracks")
         getStuff.request(.get, urlEncoded: [:])
             .onSuccess{data in
                 print("inOnSuccess")
@@ -333,11 +328,11 @@ final class DB{
     }
     func getSpotifyUserData(success: @escaping([String:String]) -> (), failure: @escaping (String) -> ()){
         
-        MyAPI.configure("/me") {
-            $0.headers["Authorization"] = "Bearer "+self.userToken
+        DB.MyAPI.configure("/me") {
+            $0.headers["Authorization"] = "Bearer "+DB.userToken
         }
         
-        let getStuff = self.MyAPI.resource("me")
+        let getStuff = DB.MyAPI.resource("me")
         getStuff.request(.get, urlEncoded: [:])
             .onSuccess{data in
                 print("inOnSuccess")

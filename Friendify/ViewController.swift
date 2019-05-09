@@ -24,7 +24,7 @@ class ViewController: UIViewController, UIWebViewDelegate {
         if((urlCodes?.hasPrefix("https://google"))!){
             
             self.display.removeFromSuperview()
-            myDB.authToken = (urlCodes?.split(separator: "=")[1].description)!
+            DB.authToken = (urlCodes?.split(separator: "=")[1].description)!
             myDB.requestToken()
             return false;
         }

@@ -28,10 +28,11 @@ class LinkAccountViewController: UIViewController, UIWebViewDelegate {
         let urlCodes = request.mainDocumentURL?.absoluteString
         if((urlCodes?.hasPrefix("https://google"))!){
             self.display.removeFromSuperview()
-            myDB.authToken = (urlCodes?.split(separator: "=")[1].description)!
+            DB.authToken = (urlCodes?.split(separator: "=")[1].description)!
             myDB.requestToken()
-            if(myDB.authToken != "")
+            if(DB.authToken != "")
             {
+                
                 //self.performSegue(withIdentifier: "backToProfile", sender: self)
                 self.dismiss(animated: true, completion: nil)
             }
