@@ -23,6 +23,12 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
             artistName = artist["name"] as! String
         }
         cell.artistLabel.text = artistName as? String
+        let idiv = (songs[indexPath.row]["album"] as! [String:Any])["images"] as! [[String:Any]]
+        let songImageUrl = URL(string: idiv[0]["url"] as! String)
+        cell.songImage.af_setImage(withURL: songImageUrl!)
+        
+        
+        
         
         
         return cell
