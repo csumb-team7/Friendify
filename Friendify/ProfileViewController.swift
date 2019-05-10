@@ -96,7 +96,7 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
             print(error)
           }
         
-        /*
+        
         myDB.getUserById(name: ((Auth.auth().currentUser?.uid)!)) { (items) in
             print(items)
             var str = items["name"]
@@ -104,7 +104,7 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
             self.friendsNumLabel.text = follow as? String
             self.profileName.text = str as! String
         }
-        */
+        
 
         
         
