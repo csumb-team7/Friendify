@@ -22,6 +22,7 @@
 		A030B42E2267E13300EF7973 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A030B42D2267E13300EF7973 /* HomeViewController.swift */; };
 		A030B4302267E4A400EF7973 /* SongCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A030B42F2267E4A400EF7973 /* SongCell.swift */; };
 		A09B15BC225BF8C0004DFA1F /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A09B15BB225BF8C0004DFA1F /* LoginViewController.swift */; };
+		A0A83B7C228624E00098B5B3 /* TopTrackCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0A83B7B228624E00098B5B3 /* TopTrackCell.swift */; };
 		A0B7B96E2259A1BD008D1435 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0B7B96D2259A1BD008D1435 /* AppDelegate.swift */; };
 		A0B7B9702259A1BD008D1435 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0B7B96F2259A1BD008D1435 /* ViewController.swift */; };
 		A0B7B9732259A1BD008D1435 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A0B7B9712259A1BD008D1435 /* Main.storyboard */; };
@@ -69,6 +70,7 @@
 		A030B42D2267E13300EF7973 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		A030B42F2267E4A400EF7973 /* SongCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongCell.swift; sourceTree = "<group>"; };
 		A09B15BB225BF8C0004DFA1F /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		A0A83B7B228624E00098B5B3 /* TopTrackCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopTrackCell.swift; sourceTree = "<group>"; };
 		A0B7B96A2259A1BD008D1435 /* Friendify.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Friendify.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0B7B96D2259A1BD008D1435 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A0B7B96F2259A1BD008D1435 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -172,6 +174,7 @@
 				A01A46F92265359D00D3EBF3 /* ProfileStoryboard.storyboard */,
 				1582026F2271063F00755C5C /* ProfileViewController.swift */,
 				A01A46FB226535AC00D3EBF3 /* HomeStoryboard.storyboard */,
+				A0A83B7B228624E00098B5B3 /* TopTrackCell.swift */,
 				A0B7B9742259A1BE008D1435 /* Assets.xcassets */,
 				A0B7B9762259A1BE008D1435 /* LaunchScreen.storyboard */,
 				A0B7B9792259A1BE008D1435 /* Info.plist */,
@@ -461,6 +464,7 @@
 				4E746332226E4AAF00B6452A /* SingUpViewController.swift in Sources */,
 				7ED576B12277B8DC004F6DCF /* DB.swift in Sources */,
 				A09B15BC225BF8C0004DFA1F /* LoginViewController.swift in Sources */,
+				A0A83B7C228624E00098B5B3 /* TopTrackCell.swift in Sources */,
 				A0B7B9702259A1BD008D1435 /* ViewController.swift in Sources */,
 				A0B7B96E2259A1BD008D1435 /* AppDelegate.swift in Sources */,
 				158202702271063F00755C5C /* ProfileViewController.swift in Sources */,
