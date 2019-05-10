@@ -28,6 +28,8 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         let cell = tableView.dequeueReusableCell(withIdentifier: "SongCell") as! SongCell
         cell.usernameLabel.text = "Alexis Glez"
         cell.songLabel.text = songs[indexPath.row]["name"] as? String
+        let idiv = (songs[indexPath.row]["album"] as! [String:Any])["images"] as! [[String:Any]]
+       //print( )
         var artistName = ""
         for artist in (songs[indexPath.row]["artists"] as? [[String : Any]])!{
             artistName = artist["name"] as! String
@@ -46,7 +48,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         let userImageUrl = URL(string: "https://scontent-lax3-1.xx.fbcdn.net/v/t1.0-1/p160x160/56931933_2380876155270516_8463034650753761280_n.jpg?_nc_cat=102&_nc_ht=scontent-lax3-1.xx&oh=dec9f9903f6bd9fb1aaa1c5886ec7ab6&oe=5D3512BE")
         cell.userImage.af_setImage(withURL: userImageUrl!)
         
-        let songImageUrl = URL(string: "https://i.ytimg.com/vi/0Q91ulV6gkE/maxresdefault.jpg")
+        let songImageUrl = URL(string: idiv[0]["url"] as! String)
         cell.songImage.af_setImage(withURL: songImageUrl!)
         
         
@@ -98,7 +100,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
             print(error)
         }
     
-        
+        loadSongs()
         // Do any additional setup after loading the view.
     }
     

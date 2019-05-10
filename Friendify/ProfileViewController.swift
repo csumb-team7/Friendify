@@ -8,8 +8,10 @@
 
 import UIKit
 import AlamofireImage
+import Firebase
 
 class ProfileViewController: UIViewController, UITableViewDataSource, UITableViewDelegate{
+
 
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var profileImage: UIImageView!
@@ -57,7 +59,6 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
         friendsNumLabel.text = "20"
         
         profileBioLabel.text = "Friendify is a super cool app!"
-        
         myDB.getUserTopTracks(success: { (response) in
             self.songs.removeAll()
             for song in response {
@@ -70,7 +71,16 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
             
         }) { (error) in
             print(error)
-        }
+          }
+        
+        myDB.getUserById(name: ((Auth.auth().currentUser?.uid)!)) { (items) in
+            print(items)
+            var str = items["name"]
+            var follow = items["followers"]
+            self.friendsNumLabel.text = follow as? String
+            self.profileName.text = str as! String
+
+        
         
     }
     
