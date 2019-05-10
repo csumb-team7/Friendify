@@ -15,7 +15,10 @@ final class DB{
     
     var db: Firestore
     static  var authToken = ""
-    static  var userToken = "";
+    static  var userToken = ""
+    static  var refreshToken = ""
+    //static var expires = 0
+    //static var time = 0
     static let MyAPI = Service(baseURL: "https://api.spotify.com/v1/")
     static let client_id = "85b2a1f5241642e9829fed00296d330d";
     static let client_secret = "61f17839ca8546abaddac04c21c4a209";
@@ -24,6 +27,20 @@ final class DB{
      static let index = client.index(withName: "users")
     init() {
          db =  Firestore.firestore()
+        
+        
+        if(Auth.auth().currentUser != nil ){
+            db.collection("users").document(Auth.auth().currentUser!.uid).getDocument { (doc, err) in
+            let list = doc?.data()
+                print(list)
+                if let token = list!["userzToken"] {
+                   DB.userToken = token as! String
+                }
+                if let token = list!["refreshToken"] {
+                    DB.refreshToken = token as! String
+                }
+            }
+        }
     }
     
     func signup(email:String, pass: String, success:  @escaping(String) -> (), failure: @escaping (Error) -> ()){
@@ -35,7 +52,12 @@ final class DB{
             let uid = Auth.auth().currentUser?.uid
             self.db.collection("timeline").document(uid!).setData(["timeline": [Any]()])
             self.db.collection("posts").document(uid!).setData(["posts": [Any]()])
-            
+            self.db.collection("users").document(uid!).updateData(
+                ["objectID": uid!,
+                "following": [String](),
+                "followers" :[String](),
+                "followingCount": 0,
+                "followerCount": 0 ])
             success("\(authResult.user.email!) created")
             
         }
@@ -144,7 +166,7 @@ final class DB{
         if(Auth.auth().currentUser == nil){
             failure("User not logged!")
         } else {
-            
+            requestToken()
             let uid = Auth.auth().currentUser?.uid
             let docRef = db.collection("timeline").document(uid!)
             
@@ -177,11 +199,7 @@ final class DB{
                 }
             }
             
-            userData["objectID"] = uid
-            userData["following"] = [String]()
-            userData["followers"] = [String]()
-            userData["followingCount"] = 0
-            userData["followerCount"] = 0
+            
             userData.merge(data){ (current, _) in current }
             ref.setData(userData) {err in
                 if let err = err {
@@ -212,43 +230,46 @@ final class DB{
         })
     }
     func requestToken(){
-        print(DB.authToken)
+        print("REFR"+DB.refreshToken)
+        var authorization_code = "authorization_code"
+        if(DB.refreshToken != ""){
+            authorization_code = "refresh_token"
+        }
+        
         let postData = NSMutableData(data: "client_id=85b2a1f5241642e9829fed00296d330d".data(using: String.Encoding.utf8)!)
         postData.append("&client_secret=61f17839ca8546abaddac04c21c4a209".data(using: String.Encoding.utf8)!)
-        postData.append("&grant_type=authorization_code".data(using: String.Encoding.utf8)!)
+        postData.append(("&grant_type=" + authorization_code).data(using: String.Encoding.utf8)!)
         postData.append(("&code="+DB.authToken).data(using: String.Encoding.utf8)!)
+        postData.append(("&refresh_token="+DB.refreshToken).data(using: String.Encoding.utf8)!)
         postData.append("&redirect_uri=https://google.com".data(using: String.Encoding.utf8)!)
         DB.authProcess.request(.post, data: postData as Data, contentType: "application/x-www-form-urlencoded" )
             .onSuccess{data in
                 print(data.jsonDict)
-                DB.userToken = data.jsonDict["access_token"] as! String
+               
                 DB.authProcess.overrideLocalContent(with: data.jsonDict)
+                if let token = data.jsonDict["access_token"] {
+                    DB.userToken = token as! String
+                }
+                if let token = data.jsonDict["refresh_token"] {
+                    DB.refreshToken = token as! String
+                }
+        
+                self.addUserInfo(data: ["refreshToken": DB.refreshToken, "userToken" : DB.userToken ], success: { (response) in
+                    print("Token saved")
+                }, failure: { (error) in
+                    print(error)
+                })
             }
             .onFailure{error in
                 print (error)
         }
         
-        DB.authProcess.addObserver(owner: self) {
-            [weak self] resource, event in
-            print("In OBSERVER")
-            //print(event)
-            //print(resource.latestData)
-            if case .newData = event{
-                DB.userToken = resource.latestData!.jsonDict["access_token"] as! String
-                print("user TOKEN: " + DB.userToken);
-                //self?.authToken =
-                //Safe token request
-                    self!.addUserInfo(data: ["userToken" : DB.userToken as! String], success: { (response) in
-                   print("Token saved")
-                }, failure: { (error) in
-                    print(error)
-                })
-                //self?.getUserData()
-            }
-        }
+        
     }
     
+
     func getUserTopTracks(success: @escaping([NSDictionary]) -> (), failure: @escaping (String) -> ()){
+        requestToken()
         print("user TOKEN IN FUNC: " + DB.userToken);
         if(DB.userToken == ""){
             failure("Error. Spotify not linked yet")
@@ -278,6 +299,7 @@ final class DB{
         }
     }
     func getUserTopArtists(success: @escaping([Any]) -> (), failure: @escaping (String) -> ()){
+        requestToken()
         if(DB.userToken == ""){
             failure("Error. Spotify not linked yet")
             return
@@ -305,6 +327,7 @@ final class DB{
         }
     }
     func getSongBySpotifyURI(uri:String,success: @escaping([String:Any]) -> (), failure: @escaping (String) -> () ){
+        requestToken()
         if(DB.userToken == ""){
             failure("Error. Spotify not linked yet")
             return
@@ -328,7 +351,7 @@ final class DB{
         }
     }
     func getSpotifyUserData(success: @escaping([String:String]) -> (), failure: @escaping (String) -> ()){
-        
+        requestToken()
         DB.MyAPI.configure("/me") {
             $0.headers["Authorization"] = "Bearer "+DB.userToken
         }
