@@ -7,6 +7,10 @@
 //
 
 import UIKit
+import Foundation
+import Firebase
+import Siesta
+import InstantSearchClient
 
 class LoginViewController: UIViewController {
     
@@ -27,6 +31,8 @@ class LoginViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         let myDb = DB.init()
+        
+        
         if UserDefaults.standard.bool(forKey: "loggedIn") == true{
             
             
