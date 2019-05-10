@@ -248,7 +248,7 @@ final class DB{
         }
     }
     
-    func getUserTopTracks(success: @escaping([Any]) -> (), failure: @escaping (String) -> ()){
+    func getUserTopTracks(success: @escaping([NSDictionary]) -> (), failure: @escaping (String) -> ()){
         print("user TOKEN IN FUNC: " + DB.userToken);
         if(DB.userToken == ""){
             failure("Error. Spotify not linked yet")
@@ -261,13 +261,14 @@ final class DB{
         DB.MyAPI.configure("me/top/artists") {
             $0.headers["Authorization"] = "Bearer "+DB.userToken
         }
+        print(DB.userToken)
         
         let getStuff = DB.MyAPI.resource("me/top/tracks")
         getStuff.request(.get, urlEncoded: [:])
             .onSuccess{data in
                 print("inOnSuccess")
                 //print(data.jsonDict["items"])
-                let dic: [ Any] = data.jsonDict["items"] as! [Any]
+                let dic: [ NSDictionary] = data.jsonDict["items"] as! [NSDictionary]
                 
                 success(dic)
                 //self.get.overrideLocalContent(with: data.jsonDict)

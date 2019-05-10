@@ -8,17 +8,40 @@
 
 import UIKit
 import AlamofireImage
+import Foundation
+import Firebase
+import Siesta
+import InstantSearchClient
 
 class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+    
+    let myRefreshControl = UIRefreshControl()
+    
+    var songs = [NSDictionary]()
+    
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 20
+        return songs.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "SongCell") as! SongCell
         cell.usernameLabel.text = "Alexis Glez"
-        cell.songLabel.text = "Con Calma"
-        cell.artistLabel.text = "Daddy Yankee"
+        cell.songLabel.text = songs[indexPath.row]["name"] as? String
+        var artistName = ""
+        for artist in (songs[indexPath.row]["artists"] as? [[String : Any]])!{
+            artistName = artist["name"] as! String
+        }
+        cell.artistLabel.text = artistName as? String
+        
+        var imageString = ""
+        
+        /*for image in (songs[indexPath.row]["images"] as? [[String : Any]])!{
+            if(image["height"] as! String == "300"){
+                imageString = image["url"] as! String
+            }
+            
+        }*/
         
         let userImageUrl = URL(string: "https://scontent-lax3-1.xx.fbcdn.net/v/t1.0-1/p160x160/56931933_2380876155270516_8463034650753761280_n.jpg?_nc_cat=102&_nc_ht=scontent-lax3-1.xx&oh=dec9f9903f6bd9fb1aaa1c5886ec7ab6&oe=5D3512BE")
         cell.userImage.af_setImage(withURL: userImageUrl!)
@@ -28,6 +51,26 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
         
         return cell
+    }
+    
+    @objc func loadSongs(){
+        let myDb = DB.init()
+        myDb.getUserTopTracks(success: { (response) in
+            self.songs.removeAll()
+            for song in response {
+                self.songs.append(song)
+                for artist in (song["artists"] as? [[String : Any]])!{
+                    print(artist["name"] as! String)
+                }
+            }
+             self.tableView.reloadData()
+            
+        }) { (error) in
+            print(error)
+        }
+       
+        self.myRefreshControl.endRefreshing()
+        
     }
     
 
@@ -40,6 +83,14 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         tableView.delegate = self
         
         let myDb = DB.init()
+        
+        myRefreshControl.addTarget(self, action: #selector(loadSongs), for: .valueChanged)
+        tableView.refreshControl = myRefreshControl
+        
+        /*myDb.getUserById(name: (Auth.auth().currentUser?.uid)!) { (list) in
+            print(list["userToken"])
+            DB.userToken = list["userToken"] as! String
+        }*/
         
         myDb.getUserTopTracks(success: { (response) in
             print(response)
@@ -57,15 +108,15 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         tableView.dataSource = self
         tableView.delegate = self
         
-        let myDb = DB.init()
+        /*let myDb = DB.init()
         
         myDb.getUserTopTracks(success: { (response) in
             print(response)
         }) { (error) in
             print(error)
-        }
-        //self.dismiss(animated: true, completion: nil)
-        //UserDefaults.standard.set(false, forKey: "loggedIn")
+        }*/
+        self.dismiss(animated: true, completion: nil)
+        UserDefaults.standard.set(false, forKey: "loggedIn")
     }
     
     /*
