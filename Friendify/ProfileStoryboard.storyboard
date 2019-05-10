@@ -68,32 +68,41 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TopTrackCell" rowHeight="147" id="eJm-Lw-nLi" customClass="TopTrackCell" customModule="Friendify" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="147"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TopTrackCell" rowHeight="150" id="eJm-Lw-nLi" customClass="TopTrackCell" customModule="Friendify" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="150"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="eJm-Lw-nLi" id="pKB-an-Kwx">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="146.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="149.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="musicNote" translatesAutoresizingMaskIntoConstraints="NO" id="QHF-Od-ft7">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="musicNote" translatesAutoresizingMaskIntoConstraints="NO" id="QHF-Od-ft7">
                                                     <rect key="frame" x="15" y="22" width="91" height="80"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="80" id="KiZ-zR-f5M"/>
+                                                        <constraint firstAttribute="width" constant="91" id="XTk-xF-MAJ"/>
+                                                    </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Songs" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ant-rn-gkv">
-                                                    <rect key="frame" x="114" y="35" width="49" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Songs" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ant-rn-gkv">
+                                                    <rect key="frame" x="116" y="35" width="234" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Artist" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8TD-Ii-6V5">
-                                                    <rect key="frame" x="31" y="110" width="42" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Artist" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8TD-Ii-6V5">
+                                                    <rect key="frame" x="31" y="110" width="319" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailingMargin" secondItem="8TD-Ii-6V5" secondAttribute="trailing" constant="10" id="BBr-5n-ptj"/>
+                                                <constraint firstItem="QHF-Od-ft7" firstAttribute="leading" secondItem="pKB-an-Kwx" secondAttribute="leadingMargin" id="Djk-tD-qv2"/>
+                                                <constraint firstItem="QHF-Od-ft7" firstAttribute="leading" secondItem="pKB-an-Kwx" secondAttribute="leadingMargin" id="FH1-Po-P4x"/>
+                                                <constraint firstItem="8TD-Ii-6V5" firstAttribute="leading" secondItem="pKB-an-Kwx" secondAttribute="leadingMargin" constant="16" id="Ihk-OX-R19"/>
+                                                <constraint firstItem="Ant-rn-gkv" firstAttribute="leading" secondItem="QHF-Od-ft7" secondAttribute="trailing" constant="10" id="wvZ-Gc-OyR"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="Ant-rn-gkv" secondAttribute="trailing" constant="10" id="zwx-IH-08o"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="artistLabel" destination="8TD-Ii-6V5" id="yYO-t6-A36"/>

@@ -9,7 +9,7 @@
 import UIKit
 import AlamofireImage
 
-class ProfileViewController: UIViewController {
+class ProfileViewController: UIViewController, UITableViewDataSource, UITableViewDelegate{
 
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var profileImage: UIImageView!
@@ -18,6 +18,8 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var friendsNumLabel: UILabel!
     
     @IBOutlet weak var profileBioLabel: UILabel!
+    
+    var songs = [NSDictionary]()
     
     //@IBAction func linkAccount(_ sender: Any) {
       //  print("Hello")
@@ -39,6 +41,10 @@ class ProfileViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        tableView.dataSource = self as! UITableViewDataSource
+        tableView.delegate = self as! UITableViewDelegate
+        
         let myDB=DB.init()
         
         // Do any additional setup after loading the view.
@@ -51,12 +57,38 @@ class ProfileViewController: UIViewController {
         friendsNumLabel.text = "20"
         
         profileBioLabel.text = "Friendify is a super cool app!"
-        myDB.getUserTopTracks(success: { (list) in
-            print(list)
-        }) { (str) in
-            print(str)
+        
+        myDB.getUserTopTracks(success: { (response) in
+            self.songs.removeAll()
+            for song in response {
+                self.songs.append(song)
+                for artist in (song["artists"] as? [[String : Any]])!{
+                    print(artist["name"] as! String)
+                }
+            }
+            self.tableView.reloadData()
+            
+        }) { (error) in
+            print(error)
         }
         
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return songs.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "TopTrackCell") as! TopTrackCell
+        cell.songLabel.text = songs[indexPath.row]["name"] as? String
+        var artistName = ""
+        for artist in (songs[indexPath.row]["artists"] as? [[String : Any]])!{
+            artistName = artist["name"] as! String
+        }
+        cell.artistLabel.text = artistName as? String
+        
+        
+        return cell
     }
     
     
