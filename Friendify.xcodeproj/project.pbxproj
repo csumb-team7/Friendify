@@ -726,6 +726,7 @@
 			baseConfigurationReference = 4AF37E60E579DFEB21ADBA72 /* Pods-FriendifyUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2KN693TKMT;
 				INFOPLIST_FILE = FriendifyUITests/Info.plist;
@@ -736,6 +737,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.alexis.FriendifyUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = Friendify;
@@ -747,6 +749,7 @@
 			baseConfigurationReference = DFAB2567C2B8D32A94538855 /* Pods-FriendifyUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2KN693TKMT;
 				INFOPLIST_FILE = FriendifyUITests/Info.plist;
@@ -757,6 +760,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.alexis.FriendifyUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = Friendify;

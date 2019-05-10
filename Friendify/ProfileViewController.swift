@@ -11,6 +11,7 @@ import AlamofireImage
 
 class ProfileViewController: UIViewController {
 
+    @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var profileImage: UIImageView!
 
     @IBOutlet weak var profileName: UILabel!
