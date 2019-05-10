@@ -27,13 +27,13 @@ final class DB{
      static let index = client.index(withName: "users")
     init() {
          db =  Firestore.firestore()
-        
+       // do{ try Auth.auth().signOut()} catch{ print ("something happebed")}
         
         if(Auth.auth().currentUser != nil ){
             db.collection("users").document(Auth.auth().currentUser!.uid).getDocument { (doc, err) in
             let list = doc?.data()
                 print(list)
-                if let token = list!["userzToken"] {
+                if let token = list!["userToken"] {
                    DB.userToken = token as! String
                 }
                 if let token = list!["refreshToken"] {
@@ -52,7 +52,7 @@ final class DB{
             let uid = Auth.auth().currentUser?.uid
             self.db.collection("timeline").document(uid!).setData(["timeline": [Any]()])
             self.db.collection("posts").document(uid!).setData(["posts": [Any]()])
-            self.db.collection("users").document(uid!).updateData(
+            self.db.collection("users").document(uid!).setData(
                 ["objectID": uid!,
                 "following": [String](),
                 "followers" :[String](),
@@ -201,7 +201,7 @@ final class DB{
             
             
             userData.merge(data){ (current, _) in current }
-            ref.setData(userData) {err in
+            ref.updateData(userData) {err in
                 if let err = err {
                     failure("Error writing user data: \(err)")
                 } else {
@@ -215,14 +215,28 @@ final class DB{
     
     
     
-    func searchUsers(keyword: String,success:  @escaping(String) -> (), failure: @escaping (String) -> ()){
+    func searchUsers(keyword: String,success:  @escaping([Any]) -> (), failure: @escaping (String) -> ()){
         let index = DB.client.index(withName: "users")
         let query = Query(query: keyword)
         query.attributesToRetrieve = ["name", "objectID"]
         query.hitsPerPage = 50
+       
+        
         index.search(query, completionHandler: { (content, error) -> Void in
+            var i=0
+            var result = content!["hits"] as! [[String:String]]
             if error == nil {
-                success("Result: \(content!["hits"])")
+                self.getUserById(name: Auth.auth().currentUser!.uid, result: { (list) in
+                    for item in result {
+                        
+                        if( (list["following"] as! [String]).contains(item["objectID"] as! String)  ){
+                            result.remove(at: i)
+                        }
+                        i+=1;
+                    }
+                    success(result)
+                })
+               // success( as! [Any]) content!["hits"] list["following"] as! [String]
             }
             else {
                 failure(error!.localizedDescription)

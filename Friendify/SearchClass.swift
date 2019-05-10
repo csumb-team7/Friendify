@@ -13,6 +13,13 @@ class SearchClass: UITableViewCell {
     @IBOutlet weak var userConnectionsLabel: UILabel!
     @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var userImage: UIImageView!
+    @IBOutlet weak var addButton: UIButton!
+    var buttonAction: ((Any) -> Void)?
+    
+    @IBAction func onClick(_ sender: Any) {
+        self.buttonAction?(sender)
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
