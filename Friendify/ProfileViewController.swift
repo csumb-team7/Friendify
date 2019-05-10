@@ -11,6 +11,23 @@ import AlamofireImage
 import Firebase
 
 class ProfileViewController: UIViewController, UITableViewDataSource, UITableViewDelegate{
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+         return songs.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "TopTrackCell") as! TopTrackCell
+        cell.songLabel.text = songs[indexPath.row]["name"] as? String
+        var artistName = ""
+        for artist in (songs[indexPath.row]["artists"] as? [[String : Any]])!{
+            artistName = artist["name"] as! String
+        }
+        cell.artistLabel.text = artistName as? String
+        
+        
+        return cell
+    }
+    
 
 
     @IBOutlet weak var tableView: UITableView!
@@ -73,33 +90,20 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
             print(error)
           }
         
+        /*
         myDB.getUserById(name: ((Auth.auth().currentUser?.uid)!)) { (items) in
             print(items)
             var str = items["name"]
             var follow = items["followers"]
             self.friendsNumLabel.text = follow as? String
             self.profileName.text = str as! String
+        }
+        */
 
         
         
     }
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return songs.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "TopTrackCell") as! TopTrackCell
-        cell.songLabel.text = songs[indexPath.row]["name"] as? String
-        var artistName = ""
-        for artist in (songs[indexPath.row]["artists"] as? [[String : Any]])!{
-            artistName = artist["name"] as! String
-        }
-        cell.artistLabel.text = artistName as? String
-        
-        
-        return cell
-    }
     
     
 
