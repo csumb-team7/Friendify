@@ -11,6 +11,7 @@ import UIKit
 class TopTrackCell: UITableViewCell {
 
     @IBOutlet weak var songLabel: UILabel!
+    @IBOutlet weak var songImage: UIImageView!
     @IBOutlet weak var artistLabel: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
