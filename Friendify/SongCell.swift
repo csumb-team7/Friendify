@@ -10,6 +10,7 @@ import UIKit
 
 class SongCell: UITableViewCell {
 
+    @IBOutlet weak var cap: UILabel!
     @IBOutlet weak var userImage: UIImageView!
     @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var songLabel: UILabel!

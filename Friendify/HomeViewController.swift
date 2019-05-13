@@ -30,7 +30,8 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         //change for posts
         cell.usernameLabel.text = songs[indexPath.row]["name"] as? String
         cell.artistLabel.text = songs[indexPath.row]["singer"] as? String
-        cell.songLabel.text = songs[indexPath.row]["caption"] as? String
+        cell.songLabel.text = songs[indexPath.row]["title"] as? String
+        cell.cap.text = songs[indexPath.row]["caption"] as? String
 //        myDB.getUserById(name: ((Auth.auth().currentUser?.uid)!)) { (items) in
 //            let str = items["name"]
 //            cell.usernameLabel.text = (str as? String)
@@ -73,7 +74,8 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
                 var item = [String:String]()
                 item["name"] = song["authorName"] as? String
                 item["singer"] = song["singer"] as? String
-                item["caption"] = song["title"] as? String
+                item["title"] = song["title"] as? String
+                item["caption"] = song["caption"] as? String
                 item["pic"] = song["spotifyURI"] as? String
                 self.songs.append(item as NSDictionary)
 
