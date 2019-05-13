@@ -82,7 +82,7 @@ final class DB{
             let ref = db.collection("users").document(uid!)
             var data = [String:Any]()
             data["author"] = uid
-            data["authorName"] = "Luis Valencia"
+            data["authorName"] = Auth.auth().currentUser?.displayName
             data["caption"] = caption
             data["type"] = type
             data["title"] = title
@@ -164,7 +164,7 @@ final class DB{
             }
         }
     }
-    func getPosts(success: @escaping ([String: Any])->(), failure: @escaping (String) ->()){
+    func getPosts(success: @escaping ([NSDictionary])->(), failure: @escaping (String) ->()){
         if(Auth.auth().currentUser == nil){
             failure("User not logged!")
         } else {
@@ -174,7 +174,7 @@ final class DB{
             
             docRef.getDocument { (document, error) in
                 if let document = document, document.exists {
-                    success(document.data()!)
+                    success(document.data()!["timeline"] as! [NSDictionary])
                 } else {
                     print("error")
                     failure("Something went wrong \(error)")
@@ -231,10 +231,7 @@ final class DB{
                 self.getUserById(name: Auth.auth().currentUser!.uid, result: { (list) in
                     for item in result {
                         
-                        if( (list["following"] as! [String]).contains(item["objectID"] as! String)  ){
-                            result.remove(at: i)
-                        }
-                        i+=1;
+                        
                     }
                     success(result)
                 })

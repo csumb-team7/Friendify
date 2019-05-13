@@ -26,35 +26,38 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "SongCell") as! SongCell
-        let myDB = DB.init()
+        //let myDB = DB.init()
         //change for posts
-        myDB.getUserById(name: ((Auth.auth().currentUser?.uid)!)) { (items) in
-            let str = items["name"]
-            cell.usernameLabel.text = (str as! String)
-        }
-        cell.songLabel.text = songs[indexPath.row]["name"] as? String
-        let idiv = (songs[indexPath.row]["album"] as! [String:Any])["images"] as! [[String:Any]]
-       //print( )
-        var artistName = ""
-        for artist in (songs[indexPath.row]["artists"] as? [[String : Any]])!{
-            artistName = artist["name"] as! String
-        }
-        cell.artistLabel.text = artistName as? String
+        cell.usernameLabel.text = songs[indexPath.row]["name"] as? String
+        cell.artistLabel.text = songs[indexPath.row]["song"] as? String
+        cell.songLabel.text = songs[indexPath.row]["caption"] as? String
+//        myDB.getUserById(name: ((Auth.auth().currentUser?.uid)!)) { (items) in
+//            let str = items["name"]
+//            cell.usernameLabel.text = (str as? String)
+//        }
+//        cell.songLabel.text = songs[indexPath.row]["name"] as? String
+//        let idiv = (songs[indexPath.row]["album"] as! [String:Any])["images"] as! [[String:Any]]
+//       //print( )
+//        var artistName = ""
+//        for artist in (songs[indexPath.row]["artists"] as? [[String : Any]])!{
+//            artistName = artist["name"] as! String
+//        }
+//        cell.artistLabel.text = artistName as? String
+//
+//        var imageString = ""
+//
+//        /*for image in (songs[indexPath.row]["images"] as? [[String : Any]])!{
+//            if(image["height"] as! String == "300"){
+//                imageString = image["url"] as! String
+//            }
+//
         
-        var imageString = ""
-        
-        /*for image in (songs[indexPath.row]["images"] as? [[String : Any]])!{
-            if(image["height"] as! String == "300"){
-                imageString = image["url"] as! String
-            }
-            
-        }*/
         
         let userImageUrl = URL(string: "https://scontent-lax3-1.xx.fbcdn.net/v/t1.0-1/p160x160/56931933_2380876155270516_8463034650753761280_n.jpg?_nc_cat=102&_nc_ht=scontent-lax3-1.xx&oh=dec9f9903f6bd9fb1aaa1c5886ec7ab6&oe=5D3512BE")
-        cell.userImage.af_setImage(withURL: userImageUrl!)
+       // cell.userImage.af_setImage(withURL: userImageUrl!)
        // let idiv = (songs[indexPath.row]["album"] as! [String:Any])["images"] as! [[String:Any]]
-        let songImageUrl = URL(string: idiv[0]["url"] as! String)
-        cell.songImage.af_setImage(withURL: songImageUrl!)
+        //let songImageUrl = URL(string: idiv[0]["url"] as! String)
+        cell.songImage.af_setImage(withURL: userImageUrl!)
         
         
         return cell
@@ -62,13 +65,20 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     @objc func loadSongs(){
         let myDb = DB.init()
-        myDb.getUserTopTracks(success: { (response) in
+        myDb.getPosts(success: { (resp) in
+            let response = resp
             self.songs.removeAll()
             for song in response {
-                self.songs.append(song)
-                for artist in (song["artists"] as? [[String : Any]])!{
-                    print(artist["name"] as! String)
-                }
+                print(song)
+                var item = [String:String]()
+                item["name"] = song["authorName"] as? String
+                item["song"] = song["caption"] as? String
+                item["caption"] = song["caption"] as? String
+                self.songs.append(item as NSDictionary)
+
+//                for artist in (song["artists"] as? [[String : Any]])!{
+//                    print(artist["name"] as! String)
+//                }
             }
              self.tableView.reloadData()
             
@@ -114,7 +124,10 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
         tableView.dataSource = self
         tableView.delegate = self
-        
+        let storage = HTTPCookieStorage.shared
+        for cookie in storage.cookies! {
+            storage.deleteCookie(cookie)
+        }
         /*let myDb = DB.init()
         
         myDb.getUserTopTracks(success: { (response) in
