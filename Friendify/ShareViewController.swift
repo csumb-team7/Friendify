@@ -7,24 +7,36 @@
 //
 
 import UIKit
+import AlamofireImage
+import Firebase
 
 class ShareViewController: UIViewController {
+    var song: [String:Any]!
 
+    @IBOutlet weak var coverImage: UIImageView!
+    
+    @IBOutlet weak var artistLabel: UILabel!
+    
+    @IBOutlet weak var titleLabel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        /*coverImage.layer.borderWidth = 1
+        coverImage.layer.masksToBounds = false
+        coverImage.layer.cornerRadius = coverImage.frame.height/2
+        coverImage.clipsToBounds = true*/
+        //Get Song information
+        
+        titleLabel.text = song["name"] as? String
+        var artistName = ""
+        for artist in (song["artists"] as? [[String : Any]])!{
+            artistName = artist["name"] as! String
+        }
+        artistLabel.text = artistName as? String
+        let idiv = (song["album"] as! [String:Any])["images"] as! [[String:Any]]
+        let songImageUrl = URL(string: idiv[0]["url"] as! String)
+        coverImage.af_setImage(withURL: songImageUrl!)        // Do any additional setup after loading the view.*/
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func shareSong(_ sender: Any) {
     }
-    */
-
 }
