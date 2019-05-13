@@ -74,7 +74,7 @@ final class DB{
         }
     }
     
-    func makePost(caption: String, type: String, SpotifyURI: String, success: @escaping(String) -> (), failure: @escaping (String) -> ()){
+    func makePost(caption: String, type: String, title: String, singer: String, SpotifyURI: String, success: @escaping(String) -> (), failure: @escaping (String) -> ()){
         if(Auth.auth().currentUser == nil){
             failure("User not logged!")
         } else {
@@ -85,6 +85,8 @@ final class DB{
             data["authorName"] = "Luis Valencia"
             data["caption"] = caption
             data["type"] = type
+            data["title"] = title
+            data["singer"] = singer
             data["spotifyURI"] = SpotifyURI
             data["timestamp"] = Timestamp(date: Date())
             

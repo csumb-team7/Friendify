@@ -18,6 +18,7 @@ class ShareViewController: UIViewController {
     @IBOutlet weak var artistLabel: UILabel!
     
     @IBOutlet weak var titleLabel: UILabel!
+    var artistName = ""
     override func viewDidLoad() {
         super.viewDidLoad()
         /*coverImage.layer.borderWidth = 1
@@ -27,7 +28,7 @@ class ShareViewController: UIViewController {
         //Get Song information
         
         titleLabel.text = song["name"] as? String
-        var artistName = ""
+        //var artistName = ""
         for artist in (song["artists"] as? [[String : Any]])!{
             artistName = artist["name"] as! String
         }
@@ -39,7 +40,16 @@ class ShareViewController: UIViewController {
     
     @IBAction func shareSong(_ sender: Any) {
         let myDB = DB.init()
-       /* myDB.makePost(caption: <#T##String#>, type: <#T##String#>, SpotifyURI: <#T##String#>, success: <#T##(String) -> ()#>, failure: <#T##(String) -> ()#>)
-        */
+        let cap = ":)"
+        let type = ""
+        guard let songtitle = song["name"] as? String else { return }
+        let idiv = (song["album"] as! [String:Any])["images"] as! [[String:Any]]
+        
+        myDB.makePost(caption: cap, type: type, title: songtitle, singer: artistName, SpotifyURI: " ", success: { (items) in
+            print("succes")
+        }) { (error) in
+            print("help")
+        }
+        
     }
 }
