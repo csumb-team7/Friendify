@@ -89,7 +89,7 @@ final class DB{
             data["singer"] = singer
             data["spotifyURI"] = SpotifyURI
             data["timestamp"] = Timestamp(date: Date())
-            
+            self.db.collection("timeline").document(uid!).updateData(["timeline" : FieldValue.arrayUnion([data])])
             ref.getDocument { (document, error) in
                 if let document = document, document.exists {
                     self.db.runTransaction({ (transaction, errorPointer) -> Any? in
