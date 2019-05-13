@@ -26,7 +26,12 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "SongCell") as! SongCell
-        cell.usernameLabel.text = "Alexis Glez"
+        let myDB = DB.init()
+        //change for posts
+        myDB.getUserById(name: ((Auth.auth().currentUser?.uid)!)) { (items) in
+            let str = items["name"]
+            cell.usernameLabel.text = (str as! String)
+        }
         cell.songLabel.text = songs[indexPath.row]["name"] as? String
         let idiv = (songs[indexPath.row]["album"] as! [String:Any])["images"] as! [[String:Any]]
        //print( )

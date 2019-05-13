@@ -13,6 +13,7 @@
 		4E74632A226D5DD100B6452A /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E746329226D5DD100B6452A /* SearchViewController.swift */; };
 		4E746330226DCA8100B6452A /* SearchClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E74632F226DCA8100B6452A /* SearchClass.swift */; };
 		4E746332226E4AAF00B6452A /* SingUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E746331226E4AAF00B6452A /* SingUpViewController.swift */; };
+		7C8775A62289EDA000E1D57A /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8775A52289EDA000E1D57A /* ShareViewController.swift */; };
 		7ED576B12277B8DC004F6DCF /* DB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ED576B02277B8DC004F6DCF /* DB.swift */; };
 		7ED576B32277BFD1004F6DCF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7ED576B22277BFD1004F6DCF /* GoogleService-Info.plist */; };
 		9912776FAEECDEBF30B42922 /* Pods_Friendify.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DFFA89AC515B8395FDB95AD /* Pods_Friendify.framework */; };
@@ -60,6 +61,7 @@
 		4E74632F226DCA8100B6452A /* SearchClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchClass.swift; sourceTree = "<group>"; };
 		4E746331226E4AAF00B6452A /* SingUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingUpViewController.swift; sourceTree = "<group>"; };
 		773A87D639FECC2821D545E3 /* Pods-Friendify.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Friendify.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Friendify/Pods-Friendify.debug.xcconfig"; sourceTree = "<group>"; };
+		7C8775A52289EDA000E1D57A /* ShareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
 		7ED576B02277B8DC004F6DCF /* DB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DB.swift; sourceTree = "<group>"; };
 		7ED576B22277BFD1004F6DCF /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		994B3E1E5FF7ED858EE167AD /* Pods_FriendifyUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FriendifyUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -172,6 +174,7 @@
 				A01A46FD22653BC200D3EBF3 /* SearchStoryboard.storyboard */,
 				4E746329226D5DD100B6452A /* SearchViewController.swift */,
 				A01A46F92265359D00D3EBF3 /* ProfileStoryboard.storyboard */,
+				7C8775A52289EDA000E1D57A /* ShareViewController.swift */,
 				1582026F2271063F00755C5C /* ProfileViewController.swift */,
 				A01A46FB226535AC00D3EBF3 /* HomeStoryboard.storyboard */,
 				A0A83B7B228624E00098B5B3 /* TopTrackCell.swift */,
@@ -463,6 +466,7 @@
 				4E746330226DCA8100B6452A /* SearchClass.swift in Sources */,
 				4E746332226E4AAF00B6452A /* SingUpViewController.swift in Sources */,
 				7ED576B12277B8DC004F6DCF /* DB.swift in Sources */,
+				7C8775A62289EDA000E1D57A /* ShareViewController.swift in Sources */,
 				A09B15BC225BF8C0004DFA1F /* LoginViewController.swift in Sources */,
 				A0A83B7C228624E00098B5B3 /* TopTrackCell.swift in Sources */,
 				A0B7B9702259A1BD008D1435 /* ViewController.swift in Sources */,
