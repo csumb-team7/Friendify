@@ -29,7 +29,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         //let myDB = DB.init()
         //change for posts
         cell.usernameLabel.text = songs[indexPath.row]["name"] as? String
-        cell.artistLabel.text = songs[indexPath.row]["song"] as? String
+        cell.artistLabel.text = songs[indexPath.row]["singer"] as? String
         cell.songLabel.text = songs[indexPath.row]["caption"] as? String
 //        myDB.getUserById(name: ((Auth.auth().currentUser?.uid)!)) { (items) in
 //            let str = items["name"]
@@ -53,7 +53,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
 //
         
         
-        let userImageUrl = URL(string: "https://scontent-lax3-1.xx.fbcdn.net/v/t1.0-1/p160x160/56931933_2380876155270516_8463034650753761280_n.jpg?_nc_cat=102&_nc_ht=scontent-lax3-1.xx&oh=dec9f9903f6bd9fb1aaa1c5886ec7ab6&oe=5D3512BE")
+        let userImageUrl = URL(string: songs[indexPath.row]["pic"] as! String)
        // cell.userImage.af_setImage(withURL: userImageUrl!)
        // let idiv = (songs[indexPath.row]["album"] as! [String:Any])["images"] as! [[String:Any]]
         //let songImageUrl = URL(string: idiv[0]["url"] as! String)
@@ -72,8 +72,9 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
                 print(song)
                 var item = [String:String]()
                 item["name"] = song["authorName"] as? String
-                item["song"] = song["caption"] as? String
-                item["caption"] = song["caption"] as? String
+                item["singer"] = song["singer"] as? String
+                item["caption"] = song["title"] as? String
+                item["pic"] = song["spotifyURI"] as? String
                 self.songs.append(item as NSDictionary)
 
 //                for artist in (song["artists"] as? [[String : Any]])!{
