@@ -38,5 +38,8 @@ class ShareViewController: UIViewController {
     }
     
     @IBAction func shareSong(_ sender: Any) {
+        let myDB = DB.init()
+       /* myDB.makePost(caption: <#T##String#>, type: <#T##String#>, SpotifyURI: <#T##String#>, success: <#T##(String) -> ()#>, failure: <#T##(String) -> ()#>)
+        */
     }
 }

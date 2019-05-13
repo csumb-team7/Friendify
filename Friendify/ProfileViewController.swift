@@ -105,20 +105,13 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
             self.profileName.text = str as? String
         }
         
-
-        
-        
     }
-    
-    
-    
-
     
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let cell = sender as! UITableViewCell
+        guard let cell = sender as? UITableViewCell else { return }
         let indexPath = tableView.indexPath(for: cell)!
         let song = songs[indexPath.row]
         // Get the new view controller using segue.destination.
@@ -126,7 +119,7 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
         let songDetailsViewController = segue.destination as! ShareViewController
         songDetailsViewController.song = (song as! [String : Any])
         //tableView.deselectRow(at:indexPath, animated: true)
-        print("Aqui estoy yo")
+       
     }
  
 
