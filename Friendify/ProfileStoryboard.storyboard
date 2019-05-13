@@ -181,8 +181,12 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="23"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8fU-on-Tyz">
+                                <rect key="frame" x="73" y="109" width="240" height="304"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ofT-Is-VlF">
-                                <rect key="frame" x="135" y="536" width="116" height="30"/>
+                                <rect key="frame" x="136" y="576" width="116" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.16286202220000001" green="0.60103626939999999" blue="0.081010331500000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
@@ -193,10 +197,13 @@
                                     <action selector="shareSong:" destination="fhp-6O-TrU" eventType="touchUpInside" id="4bP-GO-2Iu"/>
                                 </connections>
                             </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8fU-on-Tyz">
-                                <rect key="frame" x="73" y="109" width="240" height="304"/>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="add caption ..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iMk-LW-gzV">
+                                <rect key="frame" x="98" y="528" width="209" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="tintColor" red="0.16286202220000001" green="0.60103626939999999" blue="0.081010331500000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -204,6 +211,7 @@
                     </view>
                     <connections>
                         <outlet property="artistLabel" destination="ll0-xL-CSM" id="Wv4-W6-M3O"/>
+                        <outlet property="captionField" destination="iMk-LW-gzV" id="OUV-lr-0h2"/>
                         <outlet property="coverImage" destination="8fU-on-Tyz" id="7G2-B4-V9j"/>
                         <outlet property="titleLabel" destination="FvY-z7-EWz" id="tzR-7K-mr3"/>
                     </connections>

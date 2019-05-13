@@ -17,6 +17,7 @@ class ShareViewController: UIViewController {
     
     @IBOutlet weak var artistLabel: UILabel!
     
+    @IBOutlet weak var captionField: UITextField!
     @IBOutlet weak var titleLabel: UILabel!
     var artistName = ""
     override func viewDidLoad() {
@@ -40,12 +41,12 @@ class ShareViewController: UIViewController {
     
     @IBAction func shareSong(_ sender: Any) {
         let myDB = DB.init()
-        let cap = ":)"
+        let cap = captionField.text
         let type = ""
         guard let songtitle = song["name"] as? String else { return }
         let idiv = (song["album"] as! [String:Any])["images"] as! [[String:Any]]
         let url = idiv[0]["url"] as! String
-        myDB.makePost(caption: cap, type: type, title: songtitle, singer: artistName, SpotifyURI: url, success: { (items) in
+        myDB.makePost(caption: cap!, type: type, title: songtitle, singer: artistName, SpotifyURI: url, success: { (items) in
             print("succes")
         }) { (error) in
             print("help")
@@ -53,3 +54,8 @@ class ShareViewController: UIViewController {
         
     }
 }
+
+
+
+
+
