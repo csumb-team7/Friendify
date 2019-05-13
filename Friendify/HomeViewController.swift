@@ -81,6 +81,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
 //                    print(artist["name"] as! String)
 //                }
             }
+             self.songs =  self.songs.reversed()
              self.tableView.reloadData()
             
         }) { (error) in
