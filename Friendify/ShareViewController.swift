@@ -44,8 +44,8 @@ class ShareViewController: UIViewController {
         let type = ""
         guard let songtitle = song["name"] as? String else { return }
         let idiv = (song["album"] as! [String:Any])["images"] as! [[String:Any]]
-        
-        myDB.makePost(caption: cap, type: type, title: songtitle, singer: artistName, SpotifyURI: " ", success: { (items) in
+        let url = idiv[0]["url"] as! String
+        myDB.makePost(caption: cap, type: type, title: songtitle, singer: artistName, SpotifyURI: url, success: { (items) in
             print("succes")
         }) { (error) in
             print("help")
