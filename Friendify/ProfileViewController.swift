@@ -102,7 +102,7 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
             var str = items["name"]
             var follow = items["followers"]
             self.friendsNumLabel.text = follow as? String
-            self.profileName.text = str as! String
+            self.profileName.text = str as? String
         }
         
 
