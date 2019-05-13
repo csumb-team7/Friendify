@@ -32,7 +32,7 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
             let cell = tableView.dequeueReusableCell(withIdentifier: "SearchCell") as! SearchClass
-        cell.usernameLabel.text = (userList[indexPath.row] as! [String:String])["name"] as! String
+        cell.usernameLabel.text = (userList[indexPath.row] as! [String:String])["name"] as? String
         cell.buttonAction = { sender in
             self.myDB.addFriend( id: ((self.userList[indexPath.row] as! [String:String])["objectID"] as! String), success: { (str) in
                 self.didChange(self)
